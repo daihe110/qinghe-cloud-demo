@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="青禾云 · 心理机构增长平台：SaaS 数字化底座 + 平台服务市场 + 履约中台，覆盖门户官网、机构后台、平台后台与小程序四端。">
+<meta name="description" content="青禾云 · 心理机构经营平台：把空间、咨询师、服务与口碑放进同一套系统，让每一份资源都参与增长。">
 <meta name="theme-color" content="#0B7A3A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B7A3A'/%3E%3Cpath d='M18 46c1-15 12-27 29-30-1 16-12 28-29 30Z' fill='%23E9F6D8'/%3E%3Cpath d='M18 48c8-11 16-18 26-23' stroke='%230B7A3A' stroke-width='2' fill='none'/%3E%3C/svg%3E">
-<title>青禾云 · 心理机构增长平台与 SaaS 系统</title>
+<title>青禾云 · 心理机构经营平台与 SaaS 系统</title>
 <style>
 /* ============================================================
    青禾云 · 心理咨询 SaaS 原型
@@ -2908,7 +2908,6 @@ body.portal-mode{
 
 /* ---- sections ---- */
 .ptl-section{padding:88px 0}
-.ptl-reveal{display:block}
 .ptl-animate .ptl-reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
 .ptl-animate .ptl-reveal.in{opacity:1;transform:none}
 
@@ -3128,10 +3127,11 @@ body.portal-mode{
 @media (max-width:1120px){
   .ptl-nav{gap:18px;margin-left:0}
   .ptl-hero h1{font-size:44px}
-  .ptl-hero-grid{grid-template-columns:minmax(0,1fr) minmax(360px,.86fr);gap:26px}
-  .ptl-app-card{width:380px}
-  .ptl-float-card.float-order{left:-6px;width:214px}
-  .ptl-float-card.float-verify{right:-4px;width:228px}
+  .ptl-hero-grid{grid-template-columns:1fr;gap:30px;padding-top:46px}
+  .ptl-hero-copy{max-width:680px}
+  .ptl-hero-visual{min-height:auto;max-width:560px;width:100%;margin:0 auto;padding-bottom:16px}
+  .ptl-app-card{width:min(430px,94%)}
+  .ptl-float-card,.ptl-float-tag{display:none}
   .ptl-quote-card blockquote{font-size:20px}
 }
 @media (max-width:1020px){
@@ -3224,6 +3224,180 @@ body.portal-mode{
   .ptl *,.ptl *::before,.ptl *::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
 }
 @keyframes ptlDrop{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   经营观 / 空间经营 / 咨询师经营力 / 口碑经营
+   ============================================================ */
+
+/* ---- 经营观 ---- */
+.ptl-manifesto{display:flex;align-items:center;gap:20px;padding-bottom:25px;margin-bottom:30px;border-bottom:1px solid var(--ptl-line)}
+.ptl-manifesto-label{flex:none;font-size:9px;letter-spacing:.18em;color:var(--ptl-green);font-weight:600;text-transform:uppercase;padding:5px 8px;border:1px solid var(--brand-line);border-radius:4px;background:var(--brand-tint)}
+.ptl-manifesto p{font-family:var(--font-serif);font-size:25px;line-height:1.55;letter-spacing:.02em;color:var(--ptl-ink)}
+.ptl-manifesto p em{font-style:normal;color:var(--ptl-green);position:relative}
+.ptl-manifesto p em::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:rgba(11,122,58,.28)}
+
+/* ---- 空间经营 ---- */
+.ptl-space-section{background:linear-gradient(180deg,#FBFAF4 0%,#F5F2E7 100%);border-top:1px solid var(--ptl-line);border-bottom:1px solid var(--ptl-line)}
+.ptl-space-layout{display:grid;grid-template-columns:minmax(0,1.36fr) minmax(320px,.64fr);gap:15px;align-items:stretch}
+.ptl-room-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.ptl-room-card{background:#fff;border:1px solid var(--ptl-line);border-radius:14px;padding:15px 15px 13px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s}
+.ptl-room-card:hover{transform:translateY(-2px);border-color:var(--brand-line);box-shadow:0 12px 26px rgba(22,38,28,.06)}
+.ptl-room-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ptl-room-ico{width:32px;height:32px;border-radius:9px;background:var(--brand-tint);border:1px solid var(--brand-line);color:var(--ptl-green);display:grid;place-items:center;flex:none}
+.ptl-room-time{font-size:9px;color:#7F8F83;background:#F4F1E7;border-radius:4px;padding:3px 6px;white-space:nowrap}
+.ptl-room-card h3{font-size:13px;font-weight:600;color:var(--ptl-ink);margin-top:9px}
+.ptl-room-card p{font-size:10.5px;line-height:1.68;color:var(--ptl-muted);margin-top:4px;flex:1}
+.ptl-room-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.ptl-room-tags span{font-size:8.5px;color:#5E7061;background:#F3F0E5;border-radius:3px;padding:3px 5px;line-height:1}
+.ptl-space-playbook{position:relative;overflow:hidden;border-radius:16px;padding:23px 21px 18px;color:#F4F0E0;background:radial-gradient(480px 280px at 8% 0%,rgba(140,198,63,.22),rgba(140,198,63,0) 68%),linear-gradient(155deg,#032F17 0%,#064E27 42%,#0B7A3A 100%);box-shadow:0 18px 38px rgba(8,90,44,.18);display:flex;flex-direction:column}
+.ptl-space-playbook::after{content:"";position:absolute;right:-55px;top:-70px;width:190px;height:190px;border-radius:50%;border:1px solid rgba(240,245,228,.12)}
+.ptl-playbook-eyebrow{font-size:8.5px;letter-spacing:.16em;color:rgba(240,245,228,.5);font-weight:600;text-transform:uppercase;position:relative;z-index:1}
+.ptl-space-playbook h3{font-family:var(--font-serif);font-size:22px;line-height:1.45;font-weight:500;letter-spacing:.01em;color:#F7F3E5;margin-top:9px;position:relative;z-index:1}
+.ptl-playbook-steps{margin-top:13px;display:flex;flex-direction:column;position:relative;z-index:1}
+.ptl-playbook-steps > div{display:grid;grid-template-columns:25px 1fr;gap:8px;padding:8px 0;border-bottom:1px solid rgba(240,245,228,.10)}
+.ptl-playbook-steps > div:last-child{border-bottom:none}
+.ptl-playbook-steps > div > span{position:relative;font-family:var(--font-mono);font-size:8.5px;color:rgba(201,233,143,.7);border:1px solid rgba(201,233,143,.24);width:21px;height:21px;border-radius:50%;display:grid;place-items:center}
+.ptl-playbook-steps b{display:block;font-size:10.8px;font-weight:500;color:#F2EEDD}
+.ptl-playbook-steps small{display:block;font-size:9.3px;color:rgba(240,245,228,.48);margin-top:1px;line-height:1.5}
+.ptl-playbook-result{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;padding-top:13px;border-top:1px solid rgba(240,245,228,.16);position:relative;z-index:1}
+.ptl-playbook-result b{display:block;font-family:var(--font-serif);font-size:20px;font-weight:600;color:var(--ptl-lime);line-height:1.2}
+.ptl-playbook-result span{display:block;font-size:8.5px;color:rgba(240,245,228,.5);margin-top:1px}
+.ptl-playbook-note{display:flex;align-items:flex-start;gap:4px;font-size:8.8px;line-height:1.55;color:rgba(240,245,228,.42);margin-top:11px;position:relative;z-index:1}
+.ptl-playbook-note .ico{flex:none;margin-top:2px}
+.ptl-space-metrics{display:grid;grid-template-columns:repeat(4,1fr);margin-top:15px;border:1px solid var(--ptl-line);border-radius:11px;background:rgba(255,255,255,.64);overflow:hidden}
+.ptl-space-metrics > div{padding:11px 15px;border-right:1px solid var(--ptl-line)}
+.ptl-space-metrics > div:last-child{border-right:none}
+.ptl-space-metrics b{display:block;font-family:var(--font-serif);font-size:17px;font-weight:600;color:var(--ptl-ink)}
+.ptl-space-metrics span{display:block;font-size:9px;color:var(--ptl-muted);margin-top:1px}
+.ptl-space-note{display:flex;align-items:center;gap:5px;font-size:9px;color:#98A49A;margin-top:10px}
+.ptl-space-note .ico{flex:none}
+
+/* ---- 咨询师经营力 ---- */
+.ptl-people-section{background:#FBFAF4}
+.ptl-people-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.94fr);gap:50px;align-items:center}
+.ptl-people-copy > p{font-size:12.5px;line-height:1.9;color:var(--ptl-muted);margin-top:13px;max-width:500px}
+.ptl-people-points{display:flex;flex-direction:column;gap:11px;margin-top:20px;max-width:520px}
+.ptl-people-points > div{display:flex;align-items:flex-start;gap:9px}
+.ptl-people-ico{width:28px;height:28px;border-radius:8px;background:var(--brand-tint);border:1px solid var(--brand-line);color:var(--ptl-green);display:grid;place-items:center;flex:none}
+.ptl-people-points b{display:block;font-size:11.5px;font-weight:600;color:var(--ptl-ink)}
+.ptl-people-points small{display:block;font-size:10.2px;color:var(--ptl-muted);line-height:1.6;margin-top:1px}
+.ptl-perf-card{position:relative;overflow:hidden;border-radius:18px;padding:21px 21px 15px;color:#F4F0E0;background:radial-gradient(520px 300px at 84% 0%,rgba(140,198,63,.20),rgba(140,198,63,0) 64%),linear-gradient(155deg,#042F19 0%,#064E27 50%,#0B7A3A 100%);box-shadow:0 22px 48px rgba(8,90,44,.20)}
+.ptl-perf-card::after{content:"";position:absolute;right:-60px;bottom:-90px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(240,245,228,.10)}
+.ptl-perf-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;position:relative;z-index:1}
+.ptl-perf-eyebrow{font-size:8px;letter-spacing:.16em;color:rgba(240,245,228,.44);font-weight:600;text-transform:uppercase}
+.ptl-perf-head h3{font-family:var(--font-serif);font-size:18px;font-weight:500;color:#F7F3E5;margin-top:3px}
+.ptl-perf-head h3 span{font-family:var(--font-sans);font-size:10px;color:rgba(240,245,228,.45);font-weight:400}
+.ptl-perf-badge{font-size:8px;color:rgba(240,245,228,.6);border:1px solid rgba(240,245,228,.18);border-radius:4px;padding:3px 6px;flex:none}
+.ptl-perf-table{margin-top:14px;position:relative;z-index:1}
+.ptl-perf-row{display:grid;grid-template-columns:1.35fr .62fr .72fr .9fr;gap:7px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(240,245,228,.10);font-size:9.8px;color:rgba(240,245,228,.72)}
+.ptl-perf-row:last-child{border-bottom:none}
+.ptl-perf-row.head{font-size:8px;letter-spacing:.06em;color:rgba(240,245,228,.36);padding:6px 0;border-bottom:1px solid rgba(240,245,228,.12)}
+.ptl-perf-person{display:flex;align-items:center;gap:7px;min-width:0}
+.ptl-perf-person i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:9px;color:#fff;flex:none;font-weight:600}
+.ptl-perf-person i.tone-1{background:linear-gradient(145deg,#5BA82E,#0B7A3A)}
+.ptl-perf-person i.tone-2{background:linear-gradient(145deg,#C9A17F,#9A6543)}
+.ptl-perf-person i.tone-3{background:linear-gradient(145deg,#93A7B7,#5A7185)}
+.ptl-perf-person i.tone-4{background:linear-gradient(145deg,#AC9BC2,#75658F)}
+.ptl-perf-person b{display:flex;flex-direction:column;font-size:10.2px;font-weight:500;color:#F2EEDD;line-height:1.3;min-width:0}
+.ptl-perf-person small{font-size:7.8px;color:rgba(240,245,228,.38);font-weight:400;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ptl-perf-row > span:nth-child(2) small,.ptl-perf-row > span:nth-child(4) small{display:block;font-size:7.8px;color:rgba(240,245,228,.4);margin-top:1px}
+.ptl-perf-convert{color:var(--ptl-lime);font-weight:600}
+.ptl-perf-upsell{color:#F5F1E1;font-weight:500}
+.ptl-perf-foot{display:flex;align-items:center;gap:4px;margin-top:11px;padding-top:10px;border-top:1px solid rgba(240,245,228,.12);font-size:8.2px;color:rgba(240,245,228,.4);position:relative;z-index:1}
+.ptl-perf-stamp{position:absolute;right:18px;bottom:14px;font-size:7.8px;color:rgba(201,233,143,.64);background:rgba(201,233,143,.08);border:1px solid rgba(201,233,143,.18);border-radius:10px;padding:3px 7px;z-index:1}
+.ptl-perf-note{display:flex;align-items:flex-start;gap:8px;margin-top:18px;padding:13px 16px;border:1px dashed #DCD5C3;border-radius:10px;background:#F8F6ED;font-size:10.5px;line-height:1.7;color:var(--ptl-muted)}
+.ptl-perf-note-ico{color:var(--ptl-green);flex:none;margin-top:2px}
+.ptl-perf-note b{color:var(--ptl-ink-2);font-weight:600}
+
+/* ---- 口碑经营 ---- */
+.ptl-voice-section{background:linear-gradient(180deg,#F5F2E8 0%,#FBFAF4 100%);border-top:1px solid var(--ptl-line)}
+.ptl-voice-grid{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(0,1.22fr);gap:52px;align-items:center}
+.ptl-phone-mock{width:310px;margin:0 auto;background:#032F17;border-radius:39px;padding:8px;box-shadow:0 30px 70px rgba(2,26,14,.28);transform:rotate(-1.2deg);position:relative}
+.ptl-phone-mock::after{content:"";position:absolute;inset:0;border-radius:39px;border:1px solid rgba(255,255,255,.16);pointer-events:none}
+.ptl-phone-screen{background:#FBFAF4;border-radius:32px;padding:12px 13px 10px;overflow:hidden;position:relative}
+.ptl-phone-screen::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:86px;height:15px;border-radius:0 0 10px 10px;background:#032F17}
+.ptl-phone-status{display:flex;align-items:center;justify-content:space-between;font-size:8px;color:#8A978C;padding:3px 5px 7px;position:relative;z-index:1}
+.ptl-phone-signal{letter-spacing:2px;font-size:6px;color:#A7B3A9}
+.ptl-phone-head{display:flex;align-items:center;gap:7px;padding:6px 1px 9px;border-bottom:1px solid #EFEBE0}
+.ptl-phone-logo{width:24px;height:24px;border-radius:7px;background:linear-gradient(145deg,#0B7A3A,#8CC63F);color:#F7F3E4;display:grid;place-items:center;font-family:var(--font-serif);font-size:11px;flex:none}
+.ptl-phone-head > div{flex:1;display:flex;flex-direction:column;line-height:1.25}
+.ptl-phone-head b{font-size:10.5px;font-weight:600;color:var(--ptl-ink)}
+.ptl-phone-head small{font-size:7.5px;color:#98A49A;margin-top:1px}
+.ptl-phone-more{color:#A5B0A7}
+.ptl-phone-review{background:#fff;border:1px solid #EAE5D8;border-radius:10px;padding:10px 11px;margin-top:9px;box-shadow:0 4px 12px rgba(22,38,28,.04)}
+.ptl-phone-review-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.ptl-phone-stars{font-size:10px;letter-spacing:2px;color:#C9A25B}
+.ptl-phone-reviewed{font-size:7px;color:#5E7C50;background:#EEF7E3;border-radius:3px;padding:2px 5px}
+.ptl-phone-review p{font-family:var(--font-serif);font-size:11px;line-height:1.65;color:var(--ptl-ink);margin-top:6px}
+.ptl-phone-review-meta{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:7px;color:#9BA79D;margin-top:6px}
+.ptl-phone-tags{display:flex;gap:3px;flex-wrap:wrap;margin-top:6px}
+.ptl-phone-tags span{font-size:6.8px;color:#6F8A5F;background:#F2F7E8;border-radius:3px;padding:2px 4px}
+.ptl-phone-feed-title{font-size:8.5px;font-weight:600;color:var(--ptl-ink-2);margin-top:12px;padding-bottom:5px}
+.ptl-phone-post{display:flex;align-items:flex-start;gap:7px;padding:7px 0;border-bottom:1px dashed #EAE5D8}
+.ptl-phone-post:last-of-type{border-bottom:none}
+.ptl-phone-avatar{width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#5BA82E,#0B7A3A);color:#fff;display:grid;place-items:center;font-size:8px;flex:none;font-weight:600}
+.ptl-phone-avatar.clay{background:linear-gradient(145deg,#C9A17F,#9A6543)}
+.ptl-phone-post b{display:block;font-size:8.5px;font-weight:600;color:var(--ptl-ink)}
+.ptl-phone-post p{font-size:7.8px;line-height:1.55;color:#849187;margin-top:2px}
+.ptl-phone-post small{display:block;font-size:6.8px;color:#A7B1A8;margin-top:2px}
+.ptl-phone-tabbar{display:flex;align-items:center;justify-content:space-between;margin:9px -13px -10px;padding:8px 17px 10px;border-top:1px solid #EFEBE0;background:#FCFBF6;font-size:7.5px;color:#98A49A}
+.ptl-phone-tabbar .active{color:var(--ptl-green);font-weight:600;position:relative}
+.ptl-phone-tabbar .active::before{content:"";position:absolute;left:50%;top:-6px;transform:translateX(-50%);width:14px;height:2px;border-radius:2px;background:var(--ptl-green)}
+.ptl-voice-main{display:flex;flex-direction:column;gap:14px}
+.ptl-voice-flow{border-top:1px solid var(--ptl-line)}
+.ptl-voice-step{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--ptl-line)}
+.ptl-voice-step > span{font-family:var(--font-mono);font-size:9px;color:#B0BBAF;width:22px;flex:none}
+.ptl-voice-step > div{flex:1;min-width:0}
+.ptl-voice-step b{display:block;font-size:11.8px;font-weight:600;color:var(--ptl-ink)}
+.ptl-voice-step small{display:block;font-size:10px;color:var(--ptl-muted);margin-top:1px}
+.ptl-voice-step em{font-style:normal;font-size:8px;color:#6B8165;background:var(--brand-tint);border-radius:3px;padding:3px 6px;flex:none}
+.ptl-voice-cards{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ptl-voice-card{display:flex;align-items:flex-start;gap:8px;padding:12px;border:1px solid var(--ptl-line);border-radius:10px;background:#fff}
+.ptl-voice-card > span{color:var(--ptl-green);flex:none;margin-top:1px}
+.ptl-voice-card b{display:block;font-size:10.8px;font-weight:600;color:var(--ptl-ink)}
+.ptl-voice-card p{font-size:9.5px;line-height:1.6;color:var(--ptl-muted);margin-top:2px}
+.ptl-voice-quote{font-family:var(--font-serif);font-size:15px;line-height:1.65;color:#647768;padding-left:13px;border-left:2px solid var(--brand-line)}
+
+@media (max-width:1120px){
+  .ptl-people-grid{gap:30px;grid-template-columns:minmax(0,1fr) minmax(390px,.95fr)}
+  .ptl-voice-grid{gap:30px;grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr)}
+  .ptl-people-copy > p{max-width:none}
+}
+@media (max-width:1020px){
+  .ptl-space-layout{grid-template-columns:1fr}
+  .ptl-space-playbook{min-height:0}
+  .ptl-playbook-steps{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+  .ptl-people-grid{grid-template-columns:1fr;gap:28px}
+  .ptl-people-copy > p{max-width:680px}
+  .ptl-perf-card{max-width:620px}
+  .ptl-voice-grid{grid-template-columns:1fr;gap:30px}
+  .ptl-phone-mock{transform:none}
+}
+@media (max-width:760px){
+  .ptl-manifesto{align-items:flex-start;flex-direction:column;gap:10px}
+  .ptl-manifesto p{font-size:21px}
+  .ptl-room-grid{grid-template-columns:1fr}
+  .ptl-space-metrics{grid-template-columns:1fr 1fr}
+  .ptl-space-metrics > div:nth-child(2n){border-right:none}
+  .ptl-space-metrics > div:nth-child(-n+2){border-bottom:1px solid var(--ptl-line)}
+  .ptl-playbook-steps{grid-template-columns:1fr}
+  .ptl-people-points{max-width:none}
+  .ptl-perf-card{padding:18px 15px 14px}
+  .ptl-voice-cards{grid-template-columns:1fr}
+  .ptl-voice-quote{font-size:14px}
+}
+@media (max-width:520px){
+  .ptl-space-playbook{padding:18px 15px}
+  .ptl-space-playbook h3{font-size:19px}
+  .ptl-space-metrics b{font-size:15px}
+  .ptl-perf-row{grid-template-columns:1.25fr .58fr .66fr .86fr;gap:4px;font-size:9px}
+  .ptl-perf-person i{width:22px;height:22px;font-size:8px}
+  .ptl-perf-person b{font-size:9.3px}
+  .ptl-perf-head h3{font-size:16px}
+  .ptl-perf-stamp{display:none}
+  .ptl-phone-mock{width:100%;max-width:320px}
+  .ptl-voice-step{padding:10px 0}
+}
 
 </style>
 </head>
@@ -13018,6 +13192,22 @@ if (document.readyState !== 'loading') {
 let portalRevealBound = false;
 let portalScrollBound = false;
 
+const PORTAL_ROOM_TYPES = [
+  { icon:'clipboard', name:'初评访谈室', time:'30–45 分钟', desc:'首次来访的结构化评估与分流：判断适合心理咨询、需要转介医疗，还是匹配其他咨询师。', tags:['隔音','评估量表','家庭座椅'] },
+  { icon:'heart', name:'1V1 咨询室', time:'50 分钟', desc:'个体咨询、情绪疏导与阶段复盘。安静、私密，灯光与座椅都可调节。', tags:['独立入口','可调灯光','白噪音'] },
+  { icon:'users', name:'家庭咨询室', time:'80 分钟', desc:'家庭系统、亲子沟通与伴侣关系。可容纳 3–5 人，座椅与小桌可灵活移动。', tags:['3–5 人','圆桌','家庭座椅'] },
+  { icon:'leaf', name:'正念冥想室', time:'30–60 分钟', desc:'一段音频、一个安静的房间，就能承接等位客户、体验课与轻疗愈服务。', tags:['音响','冥想垫','低照度'] },
+  { icon:'users', name:'团体咨询室', time:'90–120 分钟', desc:'团体治疗、成长小组与课程。围坐布局，支持签到、分组与课程记录。', tags:['8–16 人','投影','围坐布局'] },
+  { icon:'grid', name:'多功能活动室', time:'2–4 小时', desc:'开放日、讲座、沙龙与企业 EAP 活动，可切换为培训或一对多体验。', tags:['可移动家具','投影','活动模式'] }
+];
+
+const PORTAL_PERFORMANCE = [
+  { name:'林依爵', role:'情绪与睡眠', sessions:42, rating:4.9, convert:38, upsell:8600, commission:1280, tone:1 },
+  { name:'陈岚', role:'家庭治疗', sessions:36, rating:4.8, convert:31, upsell:6200, commission:920, tone:2 },
+  { name:'郑清和', role:'职场与 EAP', sessions:48, rating:4.9, convert:27, upsell:5400, commission:810, tone:4 },
+  { name:'周予安', role:'正念团体', sessions:24, rating:4.9, convert:22, upsell:3200, commission:480, tone:3 }
+];
+
 function renderPortal() {
   const root = $('#portalRoot');
   if (!root) return;
@@ -13032,11 +13222,14 @@ function renderPortal() {
           <span class="ptl-logo-text"><b>青禾云</b><small>QINGHE CLOUD</small></span>
         </a>
         <nav class="ptl-nav" id="ptlNav">
-          <button type="button" data-scroll="capabilities">产品能力</button>
+          <button type="button" data-scroll="capabilities">经营能力</button>
+          <button type="button" data-scroll="space">空间经营</button>
+          <button type="button" data-scroll="people">团队增长</button>
           <button type="button" data-scroll="services">服务市场</button>
           <button type="button" data-scroll="flow">履约流程</button>
+          <button type="button" data-scroll="voice">口碑经营</button>
           <button type="button" data-scroll="console">平台后台</button>
-          <button type="button" data-scroll="pricing">产品与价格</button>
+          <button type="button" data-scroll="pricing">产品价格</button>
           <div class="ptl-nav-mobile-cta">
             <button type="button" data-action="portal-login" data-role="admin">机构登录</button>
             <button type="button" data-action="portal-login" data-role="platform">平台后台入口</button>
@@ -13071,7 +13264,7 @@ function renderPortal() {
           <div class="ptl-hero-copy">
             <div class="ptl-eyebrow"><span class="ptl-eyebrow-dot"></span>QINGHE CLOUD · 心理机构增长操作系统</div>
             <h1>不止一套 SaaS，<br>更是一支<span>随时到岗</span>的<br>品牌与运营团队。</h1>
-            <p class="ptl-hero-lead">青禾云把预约、档案、咨询师协作装进 SaaS 底座；再把品牌视频、吉祥物、小红书与视频号运营放进服务市场。机构在线下单，平台分派履约，验收核销——让增长第一次变得有据可循。</p>
+            <p class="ptl-hero-lead">青禾云把预约、档案、空间与咨询师协作装进 SaaS 底座；再把品牌视频、吉祥物、小红书与视频号运营放进服务市场。机构在线下单，平台分派履约，验收核销——让每一间房、每一位咨询师、每一次服务，都成为增长的一部分。</p>
             <div class="ptl-hero-cta">
               <button type="button" class="ptl-btn-primary" data-action="portal-login" data-role="admin">进入机构后台 ${icon('arrow-right', 15)}</button>
               <button type="button" class="ptl-btn-outline" data-action="portal-login" data-role="platform">${icon('layers', 15)} 平台后台入口</button>
@@ -13140,6 +13333,10 @@ function renderPortal() {
 
       <section class="ptl-section" id="capabilities">
         <div class="ptl-wrap">
+          <div class="ptl-manifesto ptl-reveal">
+            <span class="ptl-manifesto-label">青禾云的经营观</span>
+            <p>咨询师是资源，空间也是资源；服务是产品，<em>口碑也是资产</em>。</p>
+          </div>
           <div class="ptl-sec-head ptl-reveal">
             <div>
               <div class="ptl-eyebrow">ONE PLATFORM · TWO ENGINES</div>
@@ -13155,12 +13352,12 @@ function renderPortal() {
                 <span class="ptl-engine-tag">SaaS 数字化底座</span>
               </div>
               <h3>把日常经营，<br>装进一个系统。</h3>
-              <p>预约排班、来访档案、咨询师协作、团体活动与经营分析。多租户隔离、RBAC 权限、数据脱敏，让机构专注专业本身。</p>
+              <p>从咨询师排班到房间资源，从来访档案到咨询师经营力与口碑管理。多租户隔离、RBAC 权限、数据脱敏，让机构专注专业本身。</p>
               <div class="ptl-engine-list">
                 <span>${icon('calendar', 13)} 预约与排班</span>
-                <span>${icon('users', 13)} 来访档案 CRM</span>
-                <span>${icon('chart', 13)} 经营数据看板</span>
-                <span>${icon('shield', 13)} 多租户与合规</span>
+                <span>${icon('map-pin', 13)} 空间资源</span>
+                <span>${icon('award', 13)} 咨询师经营力</span>
+                <span>${icon('message', 13)} 评价与社区</span>
               </div>
               <div class="ptl-engine-mock saas-mock">
                 <div class="ptl-mock-bar"><i></i><i></i><i></i><span>机构工作台</span></div>
@@ -13192,13 +13389,102 @@ function renderPortal() {
 
           <div class="ptl-cap-grid">
             ${[
+              ['map-pin', '空间资源管理', '按业务类型管理房间：初评、1V1、家庭、正念、团体与活动，房间也能排班。'],
               ['calendar', '预约与排班', '咨询师 + 房间双资源视图，支持团体课表、调班与到店核销。'],
               ['user', '来访档案 CRM', '个人 / 家庭档案、标签、随访与转介，敏感字段按角色脱敏。'],
               ['users', '团体活动全流程', '发布、报名、测评、分组与课程记录，一套流程跑完。'],
               ['store', '服务市场', '把品牌与运营能力做成标准服务，机构按需采购、在线下单。'],
               ['clipboard', '履约中台', '订单自动生成履约单，平台分派、服务人员上传凭证、审核后核销。'],
-              ['chart', '经营驾驶舱', '营收、到店、转化与咨询师绩效，帮助管理者做对下一步。']
+              ['award', '咨询师经营力', '服务、推荐、增购与复购全过程留痕，提成透明可算，质量有护栏。'],
+              ['message', '评价与社区', '满意度即时收集、后台审核、小程序社区展示，差评进入督导闭环。'],
+              ['chart', '经营驾驶舱', '营收、空间利用率、到店、转化与咨询师绩效，帮助管理者做对下一步。']
             ].map(([ico, t, d]) => `<div class="ptl-cap-card ptl-reveal"><span class="ptl-cap-ico">${icon(ico, 17)}</span><h4>${t}</h4><p>${d}</p></div>`).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section class="ptl-section ptl-space-section" id="space">
+        <div class="ptl-wrap">
+          <div class="ptl-sec-head ptl-reveal">
+            <div>
+              <div class="ptl-eyebrow">SPACE AS A RESOURCE · 空间经营</div>
+              <h2>门店最容易被浪费的，<br><em>不是流量，是空间</em></h2>
+              <p>传统门店把咨询师排班当作唯一资源，房间只是被动等待。青禾云把空间也纳入经营：每间房都有明确的业务类型、可用时段与承接方案，让空档变成体验、评估和下一次预约。</p>
+            </div>
+            <button type="button" class="ptl-text-link" data-scroll="flow">看看空间如何承接一次服务 ${icon('arrow-right', 14)}</button>
+          </div>
+          <div class="ptl-space-layout">
+            <div class="ptl-room-grid">
+              ${PORTAL_ROOM_TYPES.map(r => `<article class="ptl-room-card ptl-reveal">
+                <div class="ptl-room-top">
+                  <span class="ptl-room-ico">${icon(r.icon, 17)}</span>
+                  <span class="ptl-room-time">${r.time}</span>
+                </div>
+                <h3>${r.name}</h3>
+                <p>${r.desc}</p>
+                <div class="ptl-room-tags">${r.tags.map(t => `<span>${t}</span>`).join('')}</div>
+              </article>`).join('')}
+            </div>
+            <aside class="ptl-space-playbook ptl-reveal">
+              <div class="ptl-playbook-eyebrow">SPACE PLAYBOOK · 空档承接示例</div>
+              <h3>周五 15:00，<br>一间空出来的正念室。</h3>
+              <div class="ptl-playbook-steps">
+                <div><span>01</span><p><b>咨询师临时调班</b><small>正念冥想室空出 45 分钟</small></p></div>
+                <div><span>02</span><p><b>前台邀请等位客户</b><small>免费体验一次正念呼吸练习</small></p></div>
+                <div><span>03</span><p><b>体验后做需求评估</b><small>客户对正念课程产生兴趣</small></p></div>
+                <div><span>04</span><p><b>自然承接下一次服务</b><small>购买 8 次正念课程，预约家庭咨询</small></p></div>
+              </div>
+              <div class="ptl-playbook-result">
+                <div><b>+ ¥2,480</b><span>当次增购</span></div>
+                <div><b>45 min</b><span>空档被有效利用</span></div>
+              </div>
+              <div class="ptl-playbook-note">${icon('info', 12)} 先评估、再推荐。推荐发生在专业判断之后，不是硬推。</div>
+            </aside>
+          </div>
+          <div class="ptl-space-metrics ptl-reveal">
+            <div><b>6 类</b><span>空间业务类型</span></div>
+            <div><b>1 张表</b><span>房间 × 时段 × 服务</span></div>
+            <div><b>4 步</b><span>体验 → 评估 → 推荐 → 预约</span></div>
+            <div><b>全程</b><span>推荐与成交留痕</span></div>
+          </div>
+          <div class="ptl-space-note ptl-reveal">${icon('shield', 12)} 初评用于服务分流，不替代医疗诊断；正念体验属于轻疗愈服务，发现风险时应及时转介。</div>
+        </div>
+      </section>
+
+      <section class="ptl-section ptl-people-section" id="people">
+        <div class="ptl-wrap ptl-people-grid">
+          <div class="ptl-people-copy ptl-reveal">
+            <div class="ptl-eyebrow">PEOPLE GROWTH · 咨询师经营力</div>
+            <h2>咨询师的成绩，<br><em>不该只有咨询时长</em></h2>
+            <p>咨询师是门店里最懂客户的人。把“推荐—接受—成交—复购”的过程记录进系统，让专业建议被看见，也让经营贡献被公平计量。不是让咨询师变成销售，而是让每一次真诚的推荐都有回应、有数据、有奖励。</p>
+            <div class="ptl-people-points">
+              <div><span class="ptl-people-ico">${icon('eye', 15)}</span><p><b>过程可见</b><small>推荐了什么、客户是否接受、成交多少，全程留痕。</small></p></div>
+              <div><span class="ptl-people-ico">${icon('wallet', 15)}</span><p><b>激励透明</b><small>服务、课程、零售分别配置提成，系统自动核算。</small></p></div>
+              <div><span class="ptl-people-ico">${icon('shield', 15)}</span><p><b>质量护栏</b><small>满意度与投诉进入督导，不以成交替代专业判断。</small></p></div>
+            </div>
+          </div>
+          <div class="ptl-perf-card ptl-reveal">
+            <div class="ptl-perf-head">
+              <div><div class="ptl-perf-eyebrow">COUNSELOR PERFORMANCE</div><h3>咨询师经营力 <span>· 本月</span></h3></div>
+              <span class="ptl-perf-badge">演示数据</span>
+            </div>
+            <div class="ptl-perf-table">
+              <div class="ptl-perf-row head"><span>咨询师</span><span>服务</span><span>推荐转化</span><span>增购贡献</span></div>
+              ${PORTAL_PERFORMANCE.map(p => `<div class="ptl-perf-row">
+                <span class="ptl-perf-person"><i class="tone-${p.tone}">${initials(p.name)}</i><b>${p.name}<small>${p.role}</small></b></span>
+                <span>${p.sessions} 节<small>${p.rating} 分</small></span>
+                <span class="ptl-perf-convert">${p.convert}%</span>
+                <span class="ptl-perf-upsell">¥${fmtNum(p.upsell)}<small>提成 ¥${fmtNum(p.commission)}</small></span>
+              </div>`).join('')}
+            </div>
+            <div class="ptl-perf-foot">${icon('info', 12)} 增购含课程、服务与零售；提成按机构规则自动核算。</div>
+            <span class="ptl-perf-stamp">${icon('shield', 11)} 推荐不是硬推</span>
+          </div>
+        </div>
+        <div class="ptl-wrap">
+          <div class="ptl-perf-note ptl-reveal">
+            <span class="ptl-perf-note-ico">${icon('info', 15)}</span>
+            <p><b>经营力不是流水。</b> 我们同时看服务时长、客户满意度、推荐转化与复购；低分和投诉会进入督导，而不是被提成掩盖。</p>
           </div>
         </div>
       </section>
@@ -13264,6 +13550,54 @@ function renderPortal() {
           <div class="ptl-flow-note ptl-reveal">
             <span class="ptl-flow-note-ico">${icon('lock', 14)}</span>
             <span><b>先下单再服务</b>：未生成服务订单，平台不会启动履约；<b>审核通过才可核销</b>：没有服务凭证，机构无法完成验收。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ptl-section ptl-voice-section" id="voice">
+        <div class="ptl-wrap">
+          <div class="ptl-sec-head ptl-reveal">
+            <div>
+              <div class="ptl-eyebrow">VOICE OF CLIENT · 口碑经营</div>
+              <h2>服务结束，<br><em>关系才真正开始</em></h2>
+              <p>每一次服务结束后，满意度评价自动推送到客户手机。评价先进入后台审核，通过后展示在小程序社区；低分与投诉进入督导闭环。好评成为机构的信任资产，差评成为服务改进的起点。</p>
+            </div>
+            <button type="button" class="ptl-text-link" data-action="portal-login" data-role="admin">查看评价与社区 ${icon('arrow-right', 14)}</button>
+          </div>
+          <div class="ptl-voice-grid">
+            <div class="ptl-phone-mock ptl-reveal">
+              <div class="ptl-phone-screen">
+              <div class="ptl-phone-status"><span>9:41</span><span class="ptl-phone-signal">● ● ●</span></div>
+              <div class="ptl-phone-head">
+                <span class="ptl-phone-logo">禾</span>
+                <div><b>青禾心理</b><small>疗愈社区</small></div>
+                <span class="ptl-phone-more">${icon('more', 15)}</span>
+              </div>
+              <div class="ptl-phone-review">
+                <div class="ptl-phone-review-top"><span class="ptl-phone-stars">★★★★★</span><span class="ptl-phone-reviewed">已审核</span></div>
+                <p>“咨询师很耐心，第一次觉得自己被真正听见。”</p>
+                <div class="ptl-phone-review-meta"><span>匿名来访 · 个体咨询</span><span>11-04</span></div>
+                <div class="ptl-phone-tags"><span># 情绪困扰</span><span># 睡眠改善</span></div>
+              </div>
+              <div class="ptl-phone-feed-title">来自真实服务的分享</div>
+              <div class="ptl-phone-post"><span class="ptl-phone-avatar">禾</span><div><b>正念练习第 3 天</b><p>今天终于能在呼吸里慢下来，睡前没有那么慌了。</p><small>青禾心理 · 已审核</small></div></div>
+              <div class="ptl-phone-post"><span class="ptl-phone-avatar clay">岚</span><div><b>家庭沟通的一点点变化</b><p>第一次没有急着反驳女儿，而是先听她把话说完。</p><small>青禾心理 · 已审核</small></div></div>
+              <div class="ptl-phone-tabbar"><span>首页</span><span>预约</span><span class="active">社区</span><span>我的</span></div>
+              </div>
+            </div>
+            <div class="ptl-voice-main">
+              <div class="ptl-voice-flow">
+                <div class="ptl-voice-step ptl-reveal"><span>01</span><div><b>服务完成</b><small>预约核销后自动触发满意度问卷</small></div><em>自动</em></div>
+                <div class="ptl-voice-step ptl-reveal"><span>02</span><div><b>客户评价</b><small>评分、文字反馈与匿名授权</small></div><em>即时</em></div>
+                <div class="ptl-voice-step ptl-reveal"><span>03</span><div><b>后台审核</b><small>隐私、合规与敏感内容审核</small></div><em>可控</em></div>
+                <div class="ptl-voice-step ptl-reveal"><span>04</span><div><b>展示与督导</b><small>好评进入社区，低分进入质量档案</small></div><em>闭环</em></div>
+              </div>
+              <div class="ptl-voice-cards">
+                <div class="ptl-voice-card ptl-reveal"><span>${icon('shield', 16)}</span><div><b>隐私优先</b><p>匿名 / 授权展示 / 医疗与家庭隐私内容不公开。</p></div></div>
+                <div class="ptl-voice-card ptl-reveal"><span>${icon('award', 16)}</span><div><b>质量档案</b><p>满意度进入咨询师档案，低分与投诉触发督导。</p></div></div>
+              </div>
+              <div class="ptl-voice-quote ptl-reveal">“好评不是营销素材，是服务质量的一部分。”</div>
+            </div>
           </div>
         </div>
       </section>
@@ -13367,9 +13701,9 @@ function renderPortal() {
           <use href="#ptlLeaf" transform="translate(390 200) rotate(-18)" stroke="rgba(235,247,214,.16)" fill="none"/>
         </svg>
         <div class="ptl-wrap ptl-final-inner">
-          <div class="ptl-eyebrow on-dark">START WITH ONE SERVICE</div>
-          <h2>把专业留给咨询，<br>把增长<em>交给平台</em>。</h2>
-          <p>从一次品牌诊断开始，或者直接进入服务市场挑一项最需要的服务。剩下的，交给青禾云。</p>
+          <div class="ptl-eyebrow on-dark">START WITH ONE ROOM</div>
+          <h2>把专业留给咨询，<br>把经营<em>交给青禾云</em>。</h2>
+          <p>从一间房、一位咨询师、一次服务开始，让空间、专业与口碑彼此成就。</p>
           <div class="ptl-final-cta">
             <button type="button" class="ptl-btn-light" data-action="portal-login" data-role="admin">进入机构后台 ${icon('arrow-right', 15)}</button>
             <button type="button" class="ptl-btn-outline-dark" data-action="portal-login" data-role="platform">${icon('layers', 14)} 平台后台入口</button>
@@ -13383,16 +13717,16 @@ function renderPortal() {
       <div class="ptl-wrap ptl-footer-grid">
         <div class="ptl-footer-brand">
           <a class="ptl-logo" href="#/portal"><span class="ptl-logo-mark">禾</span><span class="ptl-logo-text"><b>青禾云</b><small>QINGHE CLOUD</small></span></a>
-          <p>心理咨询机构的数字化底座与增长服务市场。让每一次被看见，都被温柔接住。</p>
+          <p>心理咨询机构的数字化底座、空间经营与增长服务市场。让每一份资源，都参与到专业与增长里。</p>
           <span class="ptl-footer-demo">Interactive Prototype · 高保真产品原型</span>
         </div>
-        <div class="ptl-footer-col"><b>产品</b><a href="#/portal" data-scroll="capabilities">SaaS 数字化底座</a><a href="#/portal" data-scroll="capabilities">预约与排班</a><a href="#/portal" data-scroll="capabilities">来访档案 CRM</a><a href="#/portal" data-scroll="capabilities">经营数据看板</a></div>
+        <div class="ptl-footer-col"><b>产品</b><a href="#/portal" data-scroll="capabilities">SaaS 数字化底座</a><a href="#/portal" data-scroll="space">空间经营</a><a href="#/portal" data-scroll="people">咨询师经营力</a><a href="#/portal" data-scroll="voice">评价与社区</a><a href="#/portal" data-scroll="capabilities">预约与排班</a></div>
         <div class="ptl-footer-col"><b>服务市场</b><a href="#/portal" data-scroll="services">品牌内容</a><a href="#/portal" data-scroll="services">视觉设计</a><a href="#/portal" data-scroll="services">新媒体运营</a><a href="#/portal" data-scroll="services">增长陪跑</a></div>
         <div class="ptl-footer-col"><b>平台</b><a href="#/portal" data-scroll="console">平台后台</a><a href="#/portal" data-scroll="flow">履约流程</a><a href="#/portal" data-scroll="pricing">产品与价格</a><a href="javascript:void(0)" data-action="portal-login" data-role="platform">员工登录</a></div>
         <div class="ptl-footer-col"><b>关于</b><a href="javascript:void(0)" data-action="toast" data-msg="关于青禾云（演示）">关于我们</a><a href="javascript:void(0)" data-action="toast" data-msg="合作与生态（演示）">合作与生态</a><a href="javascript:void(0)" data-action="toast" data-msg="联系客户成功（演示）">联系我们</a><a href="javascript:void(0)" data-action="toast" data-msg="隐私与合规（演示）">隐私与合规</a></div>
       </div>
       <div class="ptl-wrap ptl-footer-bottom">
-        <span>© 2026 青禾云 · 心理咨询数字化平台</span>
+        <span>© 2026 青禾云 · 心理机构经营平台</span>
         <span>数据脱敏 · 多租户隔离 · 等保三级</span>
         <span>浙 ICP 备 2026-0118 号</span>
       </div>
