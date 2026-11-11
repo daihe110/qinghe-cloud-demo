@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="青禾云 · 心理机构经营平台：把空间、咨询师、服务与口碑放进同一套系统，让每一份资源都参与增长。">
+<meta name="description" content="青禾云 · 心理机构经营操作系统：客户分层、空间经营、咨询师增收、服务订单、先下单后核销与口碑复购。">
 <meta name="theme-color" content="#0B7A3A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B7A3A'/%3E%3Cpath d='M18 46c1-15 12-27 29-30-1 16-12 28-29 30Z' fill='%23E9F6D8'/%3E%3Cpath d='M18 48c8-11 16-18 26-23' stroke='%230B7A3A' stroke-width='2' fill='none'/%3E%3C/svg%3E">
-<title>青禾云 · 心理机构经营平台与 SaaS 系统</title>
+<title>青禾云 · 心理机构经营操作系统</title>
 <style>
 /* ============================================================
    青禾云 · 心理咨询 SaaS 原型
@@ -3399,6 +3399,74 @@ body.portal-mode{
   .ptl-voice-step{padding:10px 0}
 }
 
+/* ---- 客户分层 ---- */
+.ptl-tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.ptl-tier-card{display:flex;flex-direction:column;min-height:250px}
+.ptl-tier-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding-bottom:10px;border-bottom:1px dashed var(--ptl-line)}
+.ptl-tier-top > span{font-family:var(--font-mono);font-size:9px;letter-spacing:.08em;color:#A9B5AB}
+.ptl-tier-top > small{font-size:8.5px;color:#6F8A5F;background:var(--brand-tint);border-radius:3px;padding:2px 5px;white-space:nowrap}
+.ptl-tier-card .ptl-cap-ico{margin-top:13px}
+.ptl-tier-card h4{font-size:13.5px;line-height:1.4}
+.ptl-tier-card p{font-size:10.5px;line-height:1.72;min-height:54px}
+.ptl-tier-examples{display:flex;flex-wrap:wrap;gap:4px;margin-top:auto;padding-top:12px;border-top:1px dashed var(--ptl-line)}
+.ptl-tier-examples span{font-size:8px;color:#6F8175;background:#F8F6EE;border:1px solid #EAE5D8;border-radius:3px;padding:2px 5px;line-height:1.3}
+.ptl-tier-note{display:flex;align-items:center;gap:5px;font-size:9.5px;color:#98A49A;margin-top:13px}
+.ptl-tier-note .ico{flex:none;color:var(--ptl-green)}
+
+/* ---- 咨询师增收 ---- */
+.ptl-growth-table .ptl-perf-row{grid-template-columns:1.3fr .8fr .64fr .78fr}
+.ptl-growth-table .ptl-perf-row.head span:nth-child(3){text-align:right}
+.ptl-growth-table .ptl-perf-row > span:nth-child(3){text-align:right}
+.ptl-growth-table .ptl-perf-row > span:nth-child(4){text-align:right}
+
+/* ---- 服务订单 + 引流工具 ---- */
+.ptl-lead-block{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:26px;align-items:center;margin-top:18px;border-radius:18px;padding:26px 27px;color:#F4F0E0;background:radial-gradient(520px 300px at 88% 0%,rgba(140,198,63,.20),rgba(140,198,63,0) 64%),linear-gradient(155deg,#042F19 0%,#064E27 50%,#0B7A3A 100%);box-shadow:0 20px 44px rgba(8,90,44,.18);position:relative;overflow:hidden}
+.ptl-lead-block::after{content:"";position:absolute;right:-50px;bottom:-90px;width:210px;height:210px;border-radius:50%;border:1px solid rgba(240,245,228,.10)}
+.ptl-lead-copy{position:relative;z-index:1}
+.ptl-lead-copy h3{font-family:var(--font-serif);font-size:22px;line-height:1.5;font-weight:500;color:#F7F3E5;margin-top:8px}
+.ptl-lead-copy p{font-size:10.8px;line-height:1.8;color:rgba(240,245,228,.62);margin-top:9px;max-width:360px}
+.ptl-lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;position:relative;z-index:1}
+.ptl-lead-card{background:rgba(255,255,255,.055);border:1px solid rgba(240,245,228,.13);border-radius:12px;padding:14px 13px;backdrop-filter:blur(6px);transition:all .18s}
+.ptl-lead-card:hover{background:rgba(255,255,255,.09);border-color:rgba(201,233,143,.25);transform:translateY(-2px)}
+.ptl-lead-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ptl-lead-ico{width:30px;height:30px;border-radius:8px;background:rgba(201,233,143,.12);border:1px solid rgba(201,233,143,.20);color:#C9E98F;display:grid;place-items:center}
+.ptl-lead-no{font-family:var(--font-mono);font-size:8px;color:rgba(240,245,228,.32)}
+.ptl-lead-card b{display:block;font-size:10.8px;font-weight:600;color:#F3EFDF;margin-top:10px}
+.ptl-lead-card p{font-size:9.3px;line-height:1.65;color:rgba(240,245,228,.52);margin-top:3px}
+
+/* ---- 先下单，后服务，再核销 ---- */
+.ptl-flow-retain{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin-top:18px;border-radius:17px;padding:22px 24px;background:radial-gradient(560px 280px at 94% 0%,rgba(140,198,63,.22),rgba(140,198,63,0) 68%),linear-gradient(155deg,#04351B 0%,#064E27 46%,#0B7A3A 100%);color:#F4F0E0;box-shadow:0 18px 38px rgba(8,90,44,.17);position:relative;overflow:hidden}
+.ptl-flow-retain::after{content:"";position:absolute;right:-55px;top:-80px;width:190px;height:190px;border-radius:50%;border:1px solid rgba(240,245,228,.12)}
+.ptl-fr-copy{position:relative;z-index:1;max-width:680px}
+.ptl-fr-copy h3{font-family:var(--font-serif);font-size:22px;line-height:1.45;font-weight:500;color:#F7F3E5;margin-top:7px}
+.ptl-fr-copy p{font-size:10.8px;line-height:1.8;color:rgba(240,245,228,.6);margin-top:6px}
+.ptl-fr-tags{display:flex;align-items:center;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.ptl-fr-tags span{display:inline-flex;align-items:center;justify-content:center;height:34px;padding:0 15px;border:1px solid rgba(201,233,143,.24);border-radius:999px;background:rgba(201,233,143,.08);color:#D9EFA9;font-size:10px;font-weight:500;white-space:nowrap}
+
+@media (max-width:1120px){
+  .ptl-tier-grid{grid-template-columns:1fr 1fr}
+  .ptl-lead-block{grid-template-columns:1fr;gap:18px}
+  .ptl-lead-copy p{max-width:none}
+}
+@media (max-width:760px){
+  .ptl-tier-grid{grid-template-columns:1fr}
+  .ptl-tier-card{min-height:0}
+  .ptl-tier-card p{min-height:0}
+  .ptl-lead-block{padding:20px 16px}
+  .ptl-lead-copy h3{font-size:20px}
+  .ptl-lead-grid{grid-template-columns:1fr}
+  .ptl-flow-retain{grid-template-columns:1fr;gap:14px;padding:20px 17px}
+  .ptl-fr-copy h3{font-size:20px}
+  .ptl-fr-tags span{height:30px;padding:0 12px;font-size:9px}
+}
+@media (max-width:520px){
+  .ptl-growth-table .ptl-perf-row{grid-template-columns:1.25fr .78fr .62fr .72fr}
+  .ptl-growth-table .ptl-perf-row.head span:nth-child(2){font-size:7.5px}
+}
+
+.ptl-svc-cats{display:flex;flex-wrap:wrap;gap:6px;margin:-16px 0 16px}
+.ptl-svc-cats span{font-size:9px;color:#6F8175;background:#F8F6EE;border:1px solid #EAE5D8;border-radius:999px;padding:4px 9px}
+
 </style>
 </head>
 <body>
@@ -3604,7 +3672,7 @@ const APP = {
     address: '杭州市西湖区文三路 128 号 青禾大厦 6F',
     contact: '陈云鸿',
     phone: '0571-8899 1200',
-    plan: '专业版',
+    plan: '高级版',
     expire: '2027-06-30',
     daysLeft: 238
   },
@@ -3778,18 +3846,18 @@ const PLATFORM = {
   orgCount: 128, newOrgs: 12, counselorCount: 486, gmv: 328600,
   trend: [{ d:'6月', v:86 }, { d:'7月', v:94 }, { d:'8月', v:101 }, { d:'9月', v:109 }, { d:'10月', v:118 }, { d:'11月', v:128 }],
   plans: [
-    { name:'基础版', desc:'适合刚起步的心理工作室', price:1980, year:'年付 · 含 5 个账号', color:'', feats:['预约与排班管理','来访档案（500 人）','服务项目管理','微信支付与对账','基础数据统计'] },
-    { name:'专业版', desc:'适合成长期的心理咨询机构', price:4980, year:'年付 · 含 20 个账号', color:'featured', feats:['包含基础版全部功能','商城与零售订单','团体活动全流程','咨询师绩效与督导','客户 CRM 与标签运营','多维度经营报表'] },
-    { name:'旗舰版', desc:'适合连锁机构与 EAP 服务商', price:9800, year:'年付 · 账号不限', color:'', feats:['包含专业版全部功能','多院区 / 多门店管理','企业 EAP 专属工作台','开放 API 与数据导出','专属客户成功经理','私有化部署可选'] }
+    { name:'基础版', desc:'适合刚起步的心理工作室', price:20000, year:'年付 · 含 5 个账号', color:'', feats:['预约与排班管理','来访档案（500 人）','服务项目管理','微信支付与对账','基础数据统计'] },
+    { name:'高级版', desc:'适合成长期的心理咨询机构', price:30000, year:'年付 · 含 20 个账号', color:'featured', feats:['包含基础版全部功能','商城与零售订单','团体活动全流程','咨询师绩效与督导','客户 CRM 与标签运营','多维度经营报表'] },
+    { name:'旗舰版', desc:'适合连锁机构与 EAP 服务商', price:50000, year:'年付 · 账号不限', color:'', feats:['包含高级版全部功能','多院区 / 多门店管理','企业 EAP 专属工作台','开放 API 与数据导出','专属客户成功经理','私有化部署可选'] }
   ],
   orgs: [
-    { id:'O001', name:'青禾心理咨询中心', contact:'陈云鸿', phone:'13800000000', plan:'专业版', start:'2025-07-01', expire:'2027-06-30', features:36, counselors:6, status:'正常', city:'杭州', tone:'' },
+    { id:'O001', name:'青禾心理咨询中心', contact:'陈云鸿', phone:'13800000000', plan:'高级版', start:'2025-07-01', expire:'2027-06-30', features:36, counselors:6, status:'正常', city:'杭州', tone:'' },
     { id:'O002', name:'静和堂心理诊所', contact:'沈知微', phone:'13800000011', plan:'旗舰版', start:'2024-03-18', expire:'2027-03-17', features:42, counselors:18, status:'正常', city:'上海', tone:'t2' },
     { id:'O003', name:'沐心心理咨询', contact:'许沐', phone:'13800000012', plan:'基础版', start:'2026-10-20', expire:'2026-11-19', features:18, counselors:3, status:'试用中', city:'南京', tone:'t3' },
-    { id:'O004', name:'知遇心理工作室', contact:'顾知遇', phone:'13800000013', plan:'专业版', start:'2025-11-12', expire:'2026-11-11', features:36, counselors:5, status:'即将到期', city:'苏州', tone:'t4' },
+    { id:'O004', name:'知遇心理工作室', contact:'顾知遇', phone:'13800000013', plan:'高级版', start:'2025-11-12', expire:'2026-11-11', features:36, counselors:5, status:'即将到期', city:'苏州', tone:'t4' },
     { id:'O005', name:'泊岸心理咨询中心', contact:'陆泊舟', phone:'13800000014', plan:'旗舰版', start:'2023-09-01', expire:'2027-08-31', features:42, counselors:24, status:'正常', city:'深圳', tone:'' },
     { id:'O006', name:'心屿诊所', contact:'苏屿', phone:'13800000015', plan:'基础版', start:'2025-04-06', expire:'2026-04-05', features:18, counselors:2, status:'已停用', city:'成都', tone:'t2' },
-    { id:'O007', name:'木棉心理', contact:'林棉', phone:'13800000016', plan:'专业版', start:'2024-11-01', expire:'2026-10-31', features:36, counselors:7, status:'已到期', city:'广州', tone:'t3' },
+    { id:'O007', name:'木棉心理', contact:'林棉', phone:'13800000016', plan:'高级版', start:'2024-11-01', expire:'2026-10-31', features:36, counselors:7, status:'已到期', city:'广州', tone:'t3' },
     { id:'O008', name:'云舒心理咨询', contact:'周云舒', phone:'13800000017', plan:'基础版', start:'2026-06-15', expire:'2027-06-14', features:18, counselors:4, status:'正常', city:'宁波', tone:'t4' }
   ],
   features: [
@@ -5231,7 +5299,7 @@ function renderAdminDashboard() {
   return `<div class="page page-enter">
     <div class="notice-strip">
       ${icon('shield', 15)}
-      <span><b>专业版</b> 授权有效至 2027-06-30（剩余 238 天）· 本月已使用 36 / 42 项功能</span>
+      <span><b>高级版</b> 授权有效至 2027-06-30（剩余 238 天）· 本月已使用 36 / 42 项功能</span>
       <a class="link-btn" href="#/platform/orgs" data-action="toast" data-msg="已打开机构授权信息">查看授权</a>
     </div>
 
@@ -8708,7 +8776,7 @@ function platformPageHead(title, desc, actions) {
 }
 
 function renderPlatformOverview() {
-  const planSeg = [{ label:'基础版', value:58, color:'#A5D46A' }, { label:'专业版', value:46, color:'#0B7A3A' }, { label:'旗舰版', value:24, color:'#B9825A' }];
+  const planSeg = [{ label:'基础版', value:58, color:'#A5D46A' }, { label:'高级版', value:46, color:'#0B7A3A' }, { label:'旗舰版', value:24, color:'#B9825A' }];
   return `<div class="page page-enter">
     <div class="platform-hero">
       <div class="ph-eyebrow">Qinghe Cloud · Platform Console</div>
@@ -8832,7 +8900,7 @@ function renderPlatformOrgs() {
         </div>
         <span class="spacer"></span>
         <div class="search-wrap">${icon('search',14)}<input class="input" id="orgSearch" placeholder="机构名称 / 联系人"></div>
-        <select class="select"><option>全部套餐</option><option>基础版</option><option>专业版</option><option>旗舰版</option></select>
+        <select class="select"><option>全部套餐</option><option>基础版</option><option>高级版</option><option>旗舰版</option></select>
         <span class="result">共 <b>${list.length}</b> 家 · 演示数据</span>
       </div>
       <div class="table-wrap">
@@ -8842,7 +8910,7 @@ function renderPlatformOrgs() {
             ${list.map(o => `<tr>
               <td><div class="org-name-cell"><span class="org-logo-sq ${o.tone}">${initials(o.name)}</span><div><div class="on">${o.name}</div><div class="os">${o.city} · ${o.id}</div></div></div></td>
               <td><div style="font-size:12.5px">${o.contact}</div><div class="micro muted">${o.phone}</div></td>
-              <td><span class="badge ${o.plan === '旗舰版' ? 'clay' : o.plan === '专业版' ? 'green' : ''}">${o.plan}</span></td>
+              <td><span class="badge ${o.plan === '旗舰版' ? 'clay' : o.plan === '高级版' ? 'green' : ''}">${o.plan}</span></td>
               <td><div class="small">${o.start}</div><div class="micro muted">至 ${o.expire}</div></td>
               <td><div class="small">${o.features} 项功能</div><div class="micro muted">${o.counselors} 位咨询师</div></td>
               <td>${badge(o.status)}</td>
@@ -8913,7 +8981,7 @@ function openNewOrg() {
       <div class="field"><label class="req">手机号</label><input class="input" placeholder="用于接收开通通知"></div>
       <div class="field span2"><label class="req">所在城市</label><input class="input" placeholder="如：浙江省杭州市"></div>
       <div class="form-section span2" style="grid-column:1/-1"><div class="form-section-title">授权设置</div></div>
-      <div class="field"><label class="req">产品套餐</label><select class="select"><option>基础版 · ¥1,980 / 年</option><option>专业版 · ¥4,980 / 年</option><option>旗舰版 · ¥9,800 / 年</option></select></div>
+      <div class="field"><label class="req">产品套餐</label><select class="select"><option>基础版 · ¥20,000 / 年</option><option>高级版 · ¥30,000 / 年</option><option>旗舰版 · ¥50,000 / 年</option></select></div>
       <div class="field"><label class="req">授权开始</label><input class="input" type="date" value="2026-11-05"></div>
       <div class="field"><label class="req">授权结束</label><input class="input" type="date" value="2027-11-04"></div>
       <div class="field"><label>试用期</label><select class="select"><option>不设置试用</option><option>7 天试用</option><option>30 天试用</option></select></div>
@@ -9010,7 +9078,7 @@ function renderPlatformPlans() {
     <div class="card mt-20">
       <div class="card-head bordered"><div class="card-title">功能对比</div><span class="small muted">支持按机构单独增补</span></div>
       <div class="table-wrap"><table class="table">
-        <thead><tr><th>功能</th><th class="center">基础版</th><th class="center">专业版</th><th class="center">旗舰版</th></tr></thead>
+        <thead><tr><th>功能</th><th class="center">基础版</th><th class="center">高级版</th><th class="center">旗舰版</th></tr></thead>
         <tbody>
           ${[
             ['预约看板与记录',1,1,1],['排班管理',1,1,1],['来访档案 CRM',1,1,1],['商城与零售订单',0,1,1],
@@ -9265,7 +9333,7 @@ function renderServiceMarket() {
         </div>
         <div class="mk-hero-actions">
           <button class="btn mk-btn-light" data-action="mk-orders">查看我的服务订单 ${icon('arrow-right', 14)}</button>
-          <span class="mk-hero-note">专业版机构已开通服务市场采购权限</span>
+          <span class="mk-hero-note">高级版机构已开通服务市场采购权限</span>
         </div>
       </div>
       <div class="mk-hero-side">
@@ -9478,7 +9546,7 @@ function renderMyServiceOrders() {
 
     <div class="my-tip-strip">
       <div class="mts-ico">${icon('sparkles', 17)}</div>
-      <div><b>服务市场本月上新</b><span>品牌吉祥物 · 整套 VI、机构官网 / 落地页设计已上架，专业版机构可直接采购。</span></div>
+      <div><b>服务市场本月上新</b><span>品牌吉祥物 · 整套 VI、机构官网 / 落地页设计已上架，高级版机构可直接采购。</span></div>
       <button class="link-btn" data-action="mk-goto">去看看 ${icon('arrow-right', 13)}</button>
     </div>
   </div>`;
@@ -9751,7 +9819,7 @@ function renderPlatformServices() {
       </div>
       <div class="ps-hero-side">
         <div class="ps-hero-side-title">${icon('sparkles', 14)} 上架即触达 128 家机构</div>
-        <div class="ps-hero-side-desc">服务市场与 SaaS 租户打通，专业版机构默认开通采购权限。</div>
+        <div class="ps-hero-side-desc">服务市场与 SaaS 租户打通，高级版机构默认开通采购权限。</div>
         <button class="btn btn-sm ps-hero-btn" data-action="ps-new">${icon('plus', 13)} 创建服务商品</button>
       </div>
     </div>
@@ -12359,9 +12427,9 @@ function renderShell(app, route) {
       ${icon('smartphone', 13)}
     </div>`;
   } else {
-    $('#orgCard').innerHTML = `<div class="org-card" data-action="toast" data-msg="当前机构：青禾心理咨询中心（专业版）">
+    $('#orgCard').innerHTML = `<div class="org-card" data-action="toast" data-msg="当前机构：青禾心理咨询中心（高级版）">
       <span class="org-logo">青</span>
-      <div style="min-width:0"><div class="org-name">${APP.org.name}</div><div class="org-sub">专业版 · 至 2027-06-30</div></div>
+      <div style="min-width:0"><div class="org-name">${APP.org.name}</div><div class="org-sub">高级版 · 至 2027-06-30</div></div>
       ${icon('chevron-down', 13)}
     </div>`;
   }
@@ -13222,13 +13290,12 @@ function renderPortal() {
           <span class="ptl-logo-text"><b>青禾云</b><small>QINGHE CLOUD</small></span>
         </a>
         <nav class="ptl-nav" id="ptlNav">
-          <button type="button" data-scroll="capabilities">经营能力</button>
+          <button type="button" data-scroll="tiers">客户分层</button>
           <button type="button" data-scroll="space">空间经营</button>
-          <button type="button" data-scroll="people">团队增长</button>
-          <button type="button" data-scroll="services">服务市场</button>
-          <button type="button" data-scroll="flow">履约流程</button>
-          <button type="button" data-scroll="voice">口碑经营</button>
-          <button type="button" data-scroll="console">平台后台</button>
+          <button type="button" data-scroll="counselor">咨询师增收</button>
+          <button type="button" data-scroll="services">服务订单</button>
+          <button type="button" data-scroll="flow">下单核销</button>
+          <button type="button" data-scroll="voice">口碑复购</button>
           <button type="button" data-scroll="pricing">产品价格</button>
           <div class="ptl-nav-mobile-cta">
             <button type="button" data-action="portal-login" data-role="admin">机构登录</button>
@@ -13262,9 +13329,9 @@ function renderPortal() {
         <div class="ptl-hero-glow"></div>
         <div class="ptl-wrap ptl-hero-grid">
           <div class="ptl-hero-copy">
-            <div class="ptl-eyebrow"><span class="ptl-eyebrow-dot"></span>QINGHE CLOUD · 心理机构增长操作系统</div>
-            <h1>不止一套 SaaS，<br>更是一支<span>随时到岗</span>的<br>品牌与运营团队。</h1>
-            <p class="ptl-hero-lead">青禾云把预约、档案、空间与咨询师协作装进 SaaS 底座；再把品牌视频、吉祥物、小红书与视频号运营放进服务市场。机构在线下单，平台分派履约，验收核销——让每一间房、每一位咨询师、每一次服务，都成为增长的一部分。</p>
+            <div class="ptl-eyebrow"><span class="ptl-eyebrow-dot"></span>QINGHE CLOUD · 心理机构经营操作系统</div>
+            <h1>把每一次到店，<br>经营成<span>一段长期关系</span>。</h1>
+            <p class="ptl-hero-lead">青禾云把客户分层、空间、咨询师、服务订单与口碑，装进一套可执行的经营系统：让引流有承接、空档有产出、专业能收费、服务能复购。</p>
             <div class="ptl-hero-cta">
               <button type="button" class="ptl-btn-primary" data-action="portal-login" data-role="admin">进入机构后台 ${icon('arrow-right', 15)}</button>
               <button type="button" class="ptl-btn-outline" data-action="portal-login" data-role="platform">${icon('layers', 15)} 平台后台入口</button>
@@ -13331,75 +13398,51 @@ function renderPortal() {
         </div>
       </section>
 
-      <section class="ptl-section" id="capabilities">
+      <section class="ptl-section" id="tiers">
         <div class="ptl-wrap">
           <div class="ptl-manifesto ptl-reveal">
             <span class="ptl-manifesto-label">青禾云的经营观</span>
-            <p>咨询师是资源，空间也是资源；服务是产品，<em>口碑也是资产</em>。</p>
+            <p>客户不是流量，是<em>需要被认真承接的关系</em>。</p>
           </div>
           <div class="ptl-sec-head ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">ONE PLATFORM · TWO ENGINES</div>
-              <h2>一套底座，<em>两种增长</em></h2>
-              <p>SaaS 负责把机构经营好，服务市场负责让机构被更多人看见。两者共用同一套租户、订单与权限体系，不再拼接割裂的工具。</p>
+              <div class="ptl-eyebrow">01 / 07 · CLIENT LADDER · 门店客户分层</div>
+              <h2>不同消费力的客户，<br><em>需要不同的服务承接</em></h2>
+              <p>门店不缺客户，缺的是从“第一次到店”到“长期托付”的路径。青禾云把服务设计成四级阶梯：先让更多客户了解门店，再用不同价值的服务，承接不同阶段、不同消费力的客户。</p>
             </div>
-            <button type="button" class="ptl-text-link" data-scroll="pricing">查看产品与价格 ${icon('arrow-right', 14)}</button>
+            <button type="button" class="ptl-text-link" data-scroll="space">看看空间如何承接客户 ${icon('arrow-right', 14)}</button>
           </div>
-          <div class="ptl-engine-grid">
-            <article class="ptl-engine-card saas ptl-reveal">
-              <div class="ptl-engine-head">
-                <span class="ptl-engine-no">01</span>
-                <span class="ptl-engine-tag">SaaS 数字化底座</span>
-              </div>
-              <h3>把日常经营，<br>装进一个系统。</h3>
-              <p>从咨询师排班到房间资源，从来访档案到咨询师经营力与口碑管理。多租户隔离、RBAC 权限、数据脱敏，让机构专注专业本身。</p>
-              <div class="ptl-engine-list">
-                <span>${icon('calendar', 13)} 预约与排班</span>
-                <span>${icon('map-pin', 13)} 空间资源</span>
-                <span>${icon('award', 13)} 咨询师经营力</span>
-                <span>${icon('message', 13)} 评价与社区</span>
-              </div>
-              <div class="ptl-engine-mock saas-mock">
-                <div class="ptl-mock-bar"><i></i><i></i><i></i><span>机构工作台</span></div>
-                <div class="ptl-mock-kpis"><div><b>13</b><span>今日预约</span></div><div><b>¥86,420</b><span>本月营收</span></div><div><b>92%</b><span>咨询师利用率</span></div></div>
-                <div class="ptl-mock-chart">${miniBars([{d:'一',v:42},{d:'二',v:58},{d:'三',v:49},{d:'四',v:76},{d:'五',v:63},{d:'六',v:88},{d:'日',v:72}])}</div>
-              </div>
+          <div class="ptl-tier-grid">
+            <article class="ptl-cap-card ptl-tier-card ptl-reveal">
+              <div class="ptl-tier-top"><span>01</span><small>先让客户愿意来</small></div>
+              <span class="ptl-cap-ico">${icon('target', 18)}</span>
+              <h4>门店引流品项服务</h4>
+              <p>低门槛、高感知的体验型服务：正念体验、心理测评、主题沙龙与开放日，把路过的客户变成第一次到店。</p>
+              <div class="ptl-tier-examples"><span>正念体验</span><span>心理测评</span><span>主题沙龙</span></div>
             </article>
-            <article class="ptl-engine-card market ptl-reveal">
-              <div class="ptl-engine-head">
-                <span class="ptl-engine-no">02</span>
-                <span class="ptl-engine-tag">平台服务市场</span>
-              </div>
-              <h3>把品牌与增长，<br>做成可下单的服务。</h3>
-              <p>品牌宣传片、吉祥物设计、小红书与视频号运营，由平台自营团队交付。下单、分派、交付、审核、核销，一条链路完整留痕。</p>
-              <div class="ptl-engine-list">
-                <span>${icon('video', 13)} 品牌内容</span>
-                <span>${icon('sparkles', 13)} 视觉设计</span>
-                <span>${icon('message', 13)} 新媒体运营</span>
-                <span>${icon('target', 13)} 增长陪跑</span>
-              </div>
-              <div class="ptl-engine-mock market-mock">
-                <div class="ptl-mock-bar"><i></i><i></i><i></i><span>服务市场</span></div>
-                <div class="ptl-market-row"><span class="ptl-market-ico">${icon('video', 14)}</span><span><b>品牌宣传片 · 90 秒</b><small>15 个工作日 · 平台自营</small></span><strong>¥12,800</strong></div>
-                <div class="ptl-market-row"><span class="ptl-market-ico clay">${icon('message', 14)}</span><span><b>小红书 / 视频号代运营</b><small>每月 2 次 · 按月服务</small></span><strong>¥3,980</strong></div>
-                <div class="ptl-market-row"><span class="ptl-market-ico violet">${icon('sparkles', 14)}</span><span><b>品牌吉祥物 · 整套 VI</b><small>10 个工作日 · 平台自营</small></span><strong>¥6,800</strong></div>
-              </div>
+            <article class="ptl-cap-card ptl-tier-card ptl-reveal">
+              <div class="ptl-tier-top"><span>02</span><small>再让客户愿意留</small></div>
+              <span class="ptl-cap-ico">${icon('users', 18)}</span>
+              <h4>门店锁客品项服务</h4>
+              <p>首次评估、短程咨询、家庭访谈。用专业评估建立信任，把一次体验承接为持续咨询。</p>
+              <div class="ptl-tier-examples"><span>首次评估</span><span>短程咨询</span><span>家庭访谈</span></div>
+            </article>
+            <article class="ptl-cap-card ptl-tier-card ptl-reveal">
+              <div class="ptl-tier-top"><span>03</span><small>让满意变成托付</small></div>
+              <span class="ptl-cap-ico">${icon('award', 18)}</span>
+              <h4>高付费客户会员服务</h4>
+              <p>年度会员、家庭会员、专属顾问。优先预约、持续陪伴，让高信任客户获得更高密度的服务。</p>
+              <div class="ptl-tier-examples"><span>年度会员</span><span>家庭会员</span><span>专属顾问</span></div>
+            </article>
+            <article class="ptl-cap-card ptl-tier-card ptl-reveal">
+              <div class="ptl-tier-top"><span>04</span><small>让改变有节奏</small></div>
+              <span class="ptl-cap-ico">${icon('layers', 18)}</span>
+              <h4>疗程客户品项卡</h4>
+              <p>8 / 12 / 24 次疗程卡、团体成长营。把单次服务变成周期经营，也让客户对改变有明确预期。</p>
+              <div class="ptl-tier-examples"><span>8 / 12 / 24 次</span><span>团体成长营</span><span>周期复购</span></div>
             </article>
           </div>
-
-          <div class="ptl-cap-grid">
-            ${[
-              ['map-pin', '空间资源管理', '按业务类型管理房间：初评、1V1、家庭、正念、团体与活动，房间也能排班。'],
-              ['calendar', '预约与排班', '咨询师 + 房间双资源视图，支持团体课表、调班与到店核销。'],
-              ['user', '来访档案 CRM', '个人 / 家庭档案、标签、随访与转介，敏感字段按角色脱敏。'],
-              ['users', '团体活动全流程', '发布、报名、测评、分组与课程记录，一套流程跑完。'],
-              ['store', '服务市场', '把品牌与运营能力做成标准服务，机构按需采购、在线下单。'],
-              ['clipboard', '履约中台', '订单自动生成履约单，平台分派、服务人员上传凭证、审核后核销。'],
-              ['award', '咨询师经营力', '服务、推荐、增购与复购全过程留痕，提成透明可算，质量有护栏。'],
-              ['message', '评价与社区', '满意度即时收集、后台审核、小程序社区展示，差评进入督导闭环。'],
-              ['chart', '经营驾驶舱', '营收、空间利用率、到店、转化与咨询师绩效，帮助管理者做对下一步。']
-            ].map(([ico, t, d]) => `<div class="ptl-cap-card ptl-reveal"><span class="ptl-cap-ico">${icon(ico, 17)}</span><h4>${t}</h4><p>${d}</p></div>`).join('')}
-          </div>
+          <div class="ptl-tier-note ptl-reveal">${icon('info', 13)} 不是把同一套服务卖给所有人，而是让每一层客户，都有清晰的下一步。</div>
         </div>
       </section>
 
@@ -13407,11 +13450,11 @@ function renderPortal() {
         <div class="ptl-wrap">
           <div class="ptl-sec-head ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">SPACE AS A RESOURCE · 空间经营</div>
-              <h2>门店最容易被浪费的，<br><em>不是流量，是空间</em></h2>
+              <div class="ptl-eyebrow">02 / 07 · SPACE AS A RESOURCE · 空间经营</div>
+              <h2>除了明星咨询师，<br><em>门店最大的资源是空间</em></h2>
               <p>传统门店把咨询师排班当作唯一资源，房间只是被动等待。青禾云把空间也纳入经营：每间房都有明确的业务类型、可用时段与承接方案，让空档变成体验、评估和下一次预约。</p>
             </div>
-            <button type="button" class="ptl-text-link" data-scroll="flow">看看空间如何承接一次服务 ${icon('arrow-right', 14)}</button>
+            <button type="button" class="ptl-text-link" data-scroll="counselor">看看咨询师如何增加收入 ${icon('arrow-right', 14)}</button>
           </div>
           <div class="ptl-space-layout">
             <div class="ptl-room-grid">
@@ -13451,40 +13494,58 @@ function renderPortal() {
         </div>
       </section>
 
-      <section class="ptl-section ptl-people-section" id="people">
+      <section class="ptl-section ptl-people-section" id="counselor">
         <div class="ptl-wrap ptl-people-grid">
           <div class="ptl-people-copy ptl-reveal">
-            <div class="ptl-eyebrow">PEOPLE GROWTH · 咨询师经营力</div>
-            <h2>咨询师的成绩，<br><em>不该只有咨询时长</em></h2>
-            <p>咨询师是门店里最懂客户的人。把“推荐—接受—成交—复购”的过程记录进系统，让专业建议被看见，也让经营贡献被公平计量。不是让咨询师变成销售，而是让每一次真诚的推荐都有回应、有数据、有奖励。</p>
+            <div class="ptl-eyebrow">03 / 07 · COUNSELOR GROWTH · 咨询师增收</div>
+            <h2>咨询师不只是服务者，<br><em>也是新的收入来源</em></h2>
+            <p>心理咨询师不仅是服务人员，也是潜在的付费用户。门店的口碑和明星咨询师的影响力，能带来两类增量：客户愿意为更专业的服务付费，行业内的咨询师愿意为成长付费。把督导、培训与课程做成产品，专业影响力就开始持续变现。</p>
             <div class="ptl-people-points">
-              <div><span class="ptl-people-ico">${icon('eye', 15)}</span><p><b>过程可见</b><small>推荐了什么、客户是否接受、成交多少，全程留痕。</small></p></div>
-              <div><span class="ptl-people-ico">${icon('wallet', 15)}</span><p><b>激励透明</b><small>服务、课程、零售分别配置提成，系统自动核算。</small></p></div>
-              <div><span class="ptl-people-ico">${icon('shield', 15)}</span><p><b>质量护栏</b><small>满意度与投诉进入督导，不以成交替代专业判断。</small></p></div>
+              <div><span class="ptl-people-ico">${icon('wallet', 15)}</span><p><b>付费督导</b><small>个体 / 团体督导、案例研讨与执业支持，面向新手咨询师和机构内部提升。</small></p></div>
+              <div><span class="ptl-people-ico">${icon('book', 15)}</span><p><b>培训课程</b><small>入行训练、专项技术、家庭治疗与正念课程，线上 + 线下都能交付。</small></p></div>
+              <div><span class="ptl-people-ico">${icon('sparkles', 15)}</span><p><b>明星咨询师 IP</b><small>用真实案例、专业表达与门店口碑，为课程和督导持续带来信任与生源。</small></p></div>
             </div>
           </div>
           <div class="ptl-perf-card ptl-reveal">
             <div class="ptl-perf-head">
-              <div><div class="ptl-perf-eyebrow">COUNSELOR PERFORMANCE</div><h3>咨询师经营力 <span>· 本月</span></h3></div>
-              <span class="ptl-perf-badge">演示数据</span>
+              <div><div class="ptl-perf-eyebrow">COUNSELOR REVENUE</div><h3>咨询师付费产品 <span>· 示例</span></h3></div>
+              <span class="ptl-perf-badge">机构可配置</span>
             </div>
-            <div class="ptl-perf-table">
-              <div class="ptl-perf-row head"><span>咨询师</span><span>服务</span><span>推荐转化</span><span>增购贡献</span></div>
-              ${PORTAL_PERFORMANCE.map(p => `<div class="ptl-perf-row">
-                <span class="ptl-perf-person"><i class="tone-${p.tone}">${initials(p.name)}</i><b>${p.name}<small>${p.role}</small></b></span>
-                <span>${p.sessions} 节<small>${p.rating} 分</small></span>
-                <span class="ptl-perf-convert">${p.convert}%</span>
-                <span class="ptl-perf-upsell">¥${fmtNum(p.upsell)}<small>提成 ¥${fmtNum(p.commission)}</small></span>
-              </div>`).join('')}
+            <div class="ptl-perf-table ptl-growth-table">
+              <div class="ptl-perf-row head"><span>产品</span><span>面向人群</span><span>价格</span><span>本月报名</span></div>
+              <div class="ptl-perf-row">
+                <span class="ptl-perf-person"><i class="tone-1">督</i><b>执业入门营<small>6 周 · 线上 + 线下</small></b></span>
+                <span>新手咨询师</span>
+                <span class="ptl-perf-convert">¥3,980</span>
+                <span class="ptl-perf-upsell">18 人<small>满班 24 人</small></span>
+              </div>
+              <div class="ptl-perf-row">
+                <span class="ptl-perf-person"><i class="tone-2">团</i><b>团体督导<small>每月 2 次 · 案例研讨</small></b></span>
+                <span>机构咨询师</span>
+                <span class="ptl-perf-convert">¥680 / 次</span>
+                <span class="ptl-perf-upsell">42 次<small>复购 68%</small></span>
+              </div>
+              <div class="ptl-perf-row">
+                <span class="ptl-perf-person"><i class="tone-3">家</i><b>家庭治疗工作坊<small>2 天 · 线下</small></b></span>
+                <span>成熟咨询师</span>
+                <span class="ptl-perf-convert">¥1,980</span>
+                <span class="ptl-perf-upsell">26 人<small>候补 8 人</small></span>
+              </div>
+              <div class="ptl-perf-row">
+                <span class="ptl-perf-person"><i class="tone-4">企</i><b>机构内训<small>按需定制 · 团队交付</small></b></span>
+                <span>咨询师团队</span>
+                <span class="ptl-perf-convert">¥12,800</span>
+                <span class="ptl-perf-upsell">4 场<small>3 家机构</small></span>
+              </div>
             </div>
-            <div class="ptl-perf-foot">${icon('info', 12)} 增购含课程、服务与零售；提成按机构规则自动核算。</div>
-            <span class="ptl-perf-stamp">${icon('shield', 11)} 推荐不是硬推</span>
+            <div class="ptl-perf-foot">${icon('info', 12)} 报名、支付、排课、证书与复购，全部沉淀在同一套系统里。</div>
+            <span class="ptl-perf-stamp">${icon('award', 11)} 专业影响力可定价</span>
           </div>
         </div>
         <div class="ptl-wrap">
           <div class="ptl-perf-note ptl-reveal">
             <span class="ptl-perf-note-ico">${icon('info', 15)}</span>
-            <p><b>经营力不是流水。</b> 我们同时看服务时长、客户满意度、推荐转化与复购；低分和投诉会进入督导，而不是被提成掩盖。</p>
+            <p><b>不是让咨询师做销售。</b> 督导与课程由机构或明星咨询师交付，平台负责产品化、报名、支付与学员档案；收入增长建立在专业价值之上。</p>
           </div>
         </div>
       </section>
@@ -13493,11 +13554,14 @@ function renderPortal() {
         <div class="ptl-wrap">
           <div class="ptl-sec-head ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">SERVICE MARKETPLACE</div>
-              <h2>机构缺的，<em>不只是系统</em></h2>
-              <p>我们把这些年陪机构做品牌、做内容、做增长的方法，打包成一项项可下单、可验收的服务。专业的事，交给专业的人。</p>
+              <div class="ptl-eyebrow">04 / 07 · SERVICE ORDERS · 平台服务订单</div>
+              <h2>平台能提供的，<br><em>不只是一套软件</em></h2>
+              <p>除了 SaaS 工具，平台还把品牌策划、小红书、视频号运营等能力做成可下单的服务。机构在线下单，平台分派履约；订单与客户、房间、核销数据打通，服务过程、交付物与验收都在同一张订单里。</p>
             </div>
             <button type="button" class="ptl-text-link" data-action="portal-login" data-role="admin">登录后进入服务市场 ${icon('arrow-right', 14)}</button>
+          </div>
+          <div class="ptl-svc-cats ptl-reveal">
+            <span>品牌策划</span><span>小红书运营</span><span>视频号运营</span><span>品牌视频</span><span>视觉设计</span><span>增长陪跑</span>
           </div>
           <div class="ptl-svc-grid">
             ${featured.map((s, i) => `<article class="ptl-svc-card ptl-reveal">
@@ -13515,6 +13579,30 @@ function renderPortal() {
               </div>
             </article>`).join('')}
           </div>
+          <div class="ptl-lead-block ptl-reveal">
+            <div class="ptl-lead-copy">
+              <div class="ptl-eyebrow on-dark">LEAD TOOLS · 软件自带引流工具</div>
+              <h3>软件不只管店，<br>也帮门店把客户带进来。</h3>
+              <p>服务订单带来品牌与内容，软件工具负责把流量留下来。从线索、优惠券到老客转发，每一步都可追踪、可复用。</p>
+            </div>
+            <div class="ptl-lead-grid">
+              <div class="ptl-lead-card">
+                <div class="ptl-lead-top"><span class="ptl-lead-ico">${icon('user-plus', 16)}</span><span class="ptl-lead-no">01</span></div>
+                <b>客户线索留存</b>
+                <p>测评、活动与内容页面的留资自动进入 CRM，按来源、意向和跟进人分配。</p>
+              </div>
+              <div class="ptl-lead-card">
+                <div class="ptl-lead-top"><span class="ptl-lead-ico">${icon('ticket', 16)}</span><span class="ptl-lead-no">02</span></div>
+                <b>优惠券引流</b>
+                <p>在小红书、视频号等流量平台发放体验券与咨询券，核销数据回到门店。</p>
+              </div>
+              <div class="ptl-lead-card">
+                <div class="ptl-lead-top"><span class="ptl-lead-ico">${icon('users', 16)}</span><span class="ptl-lead-no">03</span></div>
+                <b>老客转发邀请</b>
+                <p>付费客户可分享邀请卡，新客领券到店，老客获得服务次数或积分。</p>
+              </div>
+            </div>
+          </div>
           <div class="ptl-svc-note ptl-reveal">
             <span>${icon('shield', 14)} 平台自营团队</span>
             <span>${icon('file-text', 14)} 合同与发票</span>
@@ -13528,28 +13616,52 @@ function renderPortal() {
         <div class="ptl-wrap">
           <div class="ptl-sec-head center ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">ORDER · FULFILL · VERIFY</div>
-              <h2>先下单，再服务，<em>后核销</em></h2>
-              <p>不是一句口号，而是一条被系统固化的履约链路。每一次服务，都有订单、工单、凭证与核销记录。</p>
+              <div class="ptl-eyebrow">05 / 07 · ORDER FIRST · 先下单，后服务，再核销</div>
+              <h2>先让钱进来，<br><em>再推动客户到店</em></h2>
+              <p>不再沿用传统的预约挂号模式。客户先下单，再预约服务，最后门店核销；钱先进来，门店再反向推动到店。取消预约不立即退款，已购资产留在客户档案，继续完成二次挽留。</p>
             </div>
           </div>
           <div class="ptl-flow">
-            ${[
-              ['01', '机构下单', '机构管理员在服务市场选择服务、填写需求并完成支付。', '机构', 'bag'],
-              ['02', '平台受理分派', '平台受理订单，自动生成履约单，把工单分派给匹配的服务人员。', '平台', 'clipboard'],
-              ['03', '服务人员履约', '服务人员接单、推进进度，服务完成后上传交付凭证。', '服务人员', 'sparkles'],
-              ['04', '验收核销', '平台审核凭证，机构收到核销码并完成验收，订单归档。', '机构 + 平台', 'check']
-            ].map(([no, t, d, actor, ico]) => `<div class="ptl-flow-step ptl-reveal">
-              <span class="ptl-flow-no">${no}</span>
-              <span class="ptl-flow-ico">${icon(ico, 20)}</span>
-              <h3>${t}</h3>
-              <p>${d}</p>
-              <span class="ptl-flow-actor">${actor}</span>
-            </div>`).join('')}
+            <div class="ptl-flow-step ptl-reveal">
+              <span class="ptl-flow-no">01</span>
+              <span class="ptl-flow-ico">${icon('credit-card', 20)}</span>
+              <h3>客户先下单</h3>
+              <p>选择服务、疗程卡或会员，完成支付。收入先进入门店，而不是等客户到店才发生。</p>
+              <span class="ptl-flow-actor">客户</span>
+            </div>
+            <div class="ptl-flow-step ptl-reveal">
+              <span class="ptl-flow-no">02</span>
+              <span class="ptl-flow-ico">${icon('calendar', 20)}</span>
+              <h3>再预约服务</h3>
+              <p>客户选择咨询师与房间，门店按空间与排班承接，提前准备接待。</p>
+              <span class="ptl-flow-actor">客户 + 门店</span>
+            </div>
+            <div class="ptl-flow-step ptl-reveal">
+              <span class="ptl-flow-no">03</span>
+              <span class="ptl-flow-ico">${icon('heart', 20)}</span>
+              <h3>到店服务</h3>
+              <p>服务完成，记录、评价与随访自动进入客户档案，为下一次服务留下依据。</p>
+              <span class="ptl-flow-actor">咨询师</span>
+            </div>
+            <div class="ptl-flow-step ptl-reveal">
+              <span class="ptl-flow-no">04</span>
+              <span class="ptl-flow-ico">${icon('check', 20)}</span>
+              <h3>门店核销</h3>
+              <p>核销确认履约完成，订单归档；未到店资产继续留在客户档案，等待再次激活。</p>
+              <span class="ptl-flow-actor">门店</span>
+            </div>
+          </div>
+          <div class="ptl-flow-retain ptl-reveal">
+            <div class="ptl-fr-copy">
+              <div class="ptl-eyebrow on-dark">KEEP THE ASSET</div>
+              <h3>取消预约，资产不消失。</h3>
+              <p>已支付金额不原路退回，转为客户档案中的可用余额或服务次数。客户可以改约、转赠，或留到下一次；门店也赢得继续沟通与二次挽留的机会。</p>
+            </div>
+            <div class="ptl-fr-tags"><span>改约</span><span>转赠</span><span>留存</span></div>
           </div>
           <div class="ptl-flow-note ptl-reveal">
             <span class="ptl-flow-note-ico">${icon('lock', 14)}</span>
-            <span><b>先下单再服务</b>：未生成服务订单，平台不会启动履约；<b>审核通过才可核销</b>：没有服务凭证，机构无法完成验收。</span>
+            <span><b>先下单再服务</b>：未生成订单，不启动履约；<b>核销才完成闭环</b>：服务、凭证与资产变动全部留痕。</span>
           </div>
         </div>
       </section>
@@ -13558,9 +13670,9 @@ function renderPortal() {
         <div class="ptl-wrap">
           <div class="ptl-sec-head ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">VOICE OF CLIENT · 口碑经营</div>
+              <div class="ptl-eyebrow">06 / 07 · VOICE &amp; COMMUNITY · 口碑复购</div>
               <h2>服务结束，<br><em>关系才真正开始</em></h2>
-              <p>每一次服务结束后，满意度评价自动推送到客户手机。评价先进入后台审核，通过后展示在小程序社区；低分与投诉进入督导闭环。好评成为机构的信任资产，差评成为服务改进的起点。</p>
+              <p>服务结束，关系才真正开始。满意度评价自动推送到客户手机，优质评价经门店审核后发布到用户社区，成为门店最好的宣传语；低分与投诉进入督导闭环。好评是信任资产，差评是服务改进的起点。</p>
             </div>
             <button type="button" class="ptl-text-link" data-action="portal-login" data-role="admin">查看评价与社区 ${icon('arrow-right', 14)}</button>
           </div>
@@ -13602,64 +13714,13 @@ function renderPortal() {
         </div>
       </section>
 
-      <section class="ptl-console-section" id="console">
-        <div class="ptl-wrap ptl-console-grid">
-          <div class="ptl-console-copy ptl-reveal">
-            <div class="ptl-eyebrow on-dark">PLATFORM CONSOLE · 平台后台</div>
-            <h2>给平台员工的<br><em>履约作战台</em></h2>
-            <p>服务上架、服务商品订单、服务履约单、工单分派、凭证审核与核销跟踪，都在同一个平台后台完成。与机构租户数据隔离，平台员工专属入口。</p>
-            <div class="ptl-console-list">
-              <div><span>01</span><b>服务上架</b><small>定价、交付清单、上下架与详情管理</small></div>
-              <div><span>02</span><b>服务商品订单</b><small>机构订单受理、支付状态与退款跟进</small></div>
-              <div><span>03</span><b>服务履约单</b><small>工单分派、进度跟踪与 SLA 预警</small></div>
-              <div><span>04</span><b>凭证审核与核销</b><small>交付凭证审核、核销码与完成归档</small></div>
-            </div>
-            <div class="ptl-console-cta">
-              <button type="button" class="ptl-btn-light" data-action="portal-login" data-role="platform">进入平台后台 ${icon('arrow-right', 14)}</button>
-              <span>${icon('lock', 12)} 仅限青禾云员工账号</span>
-            </div>
-          </div>
-          <div class="ptl-console-visual ptl-reveal">
-            <div class="ptl-console-window">
-              <div class="ptl-cw-bar"><i></i><i></i><i></i><span>平台管理后台 / 服务履约单</span><b>周砚 · 平台运营</b></div>
-              <div class="ptl-cw-body">
-                <aside class="ptl-cw-side">
-                  <span class="active">${icon('grid', 12)} 平台概览</span>
-                  <span>${icon('store', 12)} 服务商品</span>
-                  <span>${icon('bag', 12)} 服务订单</span>
-                  <span>${icon('clipboard', 12)} 服务履约单 <i>7</i></span>
-                  <span>${icon('users', 12)} 服务团队</span>
-                </aside>
-                <div class="ptl-cw-main">
-                  <div class="ptl-cw-title"><b>服务履约单</b><span>待分派 1 · 待审核 1 · 待核销 2</span></div>
-                  <div class="ptl-cw-stats"><div><b>7</b><span>进行中</span></div><div><b>2</b><span>待审核</span></div><div><b>96.2%</b><span>按时交付</span></div></div>
-                  <div class="ptl-cw-board">
-                    ${[
-                      ['待分派', '开业活动策划', '沐心心理 · 紧急', 'clay'],
-                      ['待接单', '品牌全案陪跑', '静和堂 · 沈舟', 'amber'],
-                      ['服务中', '品牌宣传片', '青禾心理 · 林一', 'blue'],
-                      ['待审核', '咨询师 IP 包装', '泊岸心理 · 许棠', 'violet']
-                    ].map(([st, name, meta, tone]) => `<div class="ptl-cw-col">
-                      <div class="ptl-cw-col-head"><i class="${tone}"></i>${st}</div>
-                      <div class="ptl-cw-card"><b>${name}</b><span>${meta}</span><div class="ptl-cw-track"><i style="width:${st === '待审核' ? 100 : st === '服务中' ? 60 : 16}%"></i></div></div>
-                    </div>`).join('')}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ptl-console-tag tag-1">服务上架 · 实时同步</div>
-            <div class="ptl-console-tag tag-2">核销码 · 一次有效</div>
-          </div>
-        </div>
-      </section>
-
       <section class="ptl-section" id="pricing">
         <div class="ptl-wrap">
           <div class="ptl-sec-head center ptl-reveal">
             <div>
-              <div class="ptl-eyebrow">SAAS + MARKETPLACE</div>
-              <h2>先选一套适合现在的 SaaS，<br><em>再按需采购服务</em></h2>
-              <p>SaaS 年费覆盖机构日常经营；服务市场按需下单、按单结算，不捆绑、不浪费。</p>
+              <div class="ptl-eyebrow">07 / 07 · SAAS PRICING · 产品价格</div>
+              <h2>选一套适合现在的 SaaS，<br><em>把经营先跑起来</em></h2>
+              <p>基础版 2 万 / 年，高级版 3 万 / 年，旗舰版 5 万 / 年。服务市场按需下单、独立结算，不捆绑、不浪费。</p>
             </div>
           </div>
           <div class="ptl-plan-grid">
@@ -13673,22 +13734,7 @@ function renderPortal() {
               <button type="button" data-action="portal-login" data-role="admin">${i === 1 ? '预约演示' : '开始试用'} ${icon('arrow-right', 12)}</button>
             </div>`).join('')}
           </div>
-          <div class="ptl-pricing-note ptl-reveal">${icon('info', 13)} 服务市场订单独立结算，支持对公转账与增值税专用发票；服务完成并经机构核销后计入服务成本。</div>
-        </div>
-      </section>
-
-      <section class="ptl-quote-section">
-        <div class="ptl-wrap ptl-quote-grid">
-          <div class="ptl-quote-card ptl-reveal">
-            <span class="ptl-quote-mark">“</span>
-            <blockquote>以前我们买了系统，还得自己找拍摄、找运营。现在在服务市场下单，平台派单、我们验收，品牌动作终于能跟上业务节奏。</blockquote>
-            <div class="ptl-quote-author"><span class="ptl-quote-avatar">沈</span><div><b>沈知微</b><small>静和堂心理诊所 · 联合创始人</small></div><span class="ptl-quote-org">旗舰版 · 上海</span></div>
-          </div>
-          <div class="ptl-quote-stats">
-            <div class="ptl-quote-stat ptl-reveal"><b>2.4×</b><span>服务市场机构的内容更新频率提升</span></div>
-            <div class="ptl-quote-stat ptl-reveal"><b>6.8 天</b><span>平台服务平均交付周期</span></div>
-            <div class="ptl-quote-stat ptl-reveal"><b>96.2%</b><span>服务按时交付率</span></div>
-          </div>
+          <div class="ptl-pricing-note ptl-reveal">${icon('info', 13)} SaaS 年费不含短信、大模型调用及其他第三方服务费用；服务市场订单独立结算，支持对公转账与增值税专用发票。</div>
         </div>
       </section>
 
@@ -13701,9 +13747,9 @@ function renderPortal() {
           <use href="#ptlLeaf" transform="translate(390 200) rotate(-18)" stroke="rgba(235,247,214,.16)" fill="none"/>
         </svg>
         <div class="ptl-wrap ptl-final-inner">
-          <div class="ptl-eyebrow on-dark">START WITH ONE ROOM</div>
+          <div class="ptl-eyebrow on-dark">START WITH ONE CLIENT</div>
           <h2>把专业留给咨询，<br>把经营<em>交给青禾云</em>。</h2>
-          <p>从一间房、一位咨询师、一次服务开始，让空间、专业与口碑彼此成就。</p>
+          <p>从一位客户、一间房、一次服务开始，让客户分层、空间、咨询师与口碑彼此成就。</p>
           <div class="ptl-final-cta">
             <button type="button" class="ptl-btn-light" data-action="portal-login" data-role="admin">进入机构后台 ${icon('arrow-right', 15)}</button>
             <button type="button" class="ptl-btn-outline-dark" data-action="portal-login" data-role="platform">${icon('layers', 14)} 平台后台入口</button>
@@ -13717,12 +13763,12 @@ function renderPortal() {
       <div class="ptl-wrap ptl-footer-grid">
         <div class="ptl-footer-brand">
           <a class="ptl-logo" href="#/portal"><span class="ptl-logo-mark">禾</span><span class="ptl-logo-text"><b>青禾云</b><small>QINGHE CLOUD</small></span></a>
-          <p>心理咨询机构的数字化底座、空间经营与增长服务市场。让每一份资源，都参与到专业与增长里。</p>
+          <p>心理咨询机构的客户经营、空间经营与增长服务市场。让每一份专业，都有更长久的回报。</p>
           <span class="ptl-footer-demo">Interactive Prototype · 高保真产品原型</span>
         </div>
-        <div class="ptl-footer-col"><b>产品</b><a href="#/portal" data-scroll="capabilities">SaaS 数字化底座</a><a href="#/portal" data-scroll="space">空间经营</a><a href="#/portal" data-scroll="people">咨询师经营力</a><a href="#/portal" data-scroll="voice">评价与社区</a><a href="#/portal" data-scroll="capabilities">预约与排班</a></div>
-        <div class="ptl-footer-col"><b>服务市场</b><a href="#/portal" data-scroll="services">品牌内容</a><a href="#/portal" data-scroll="services">视觉设计</a><a href="#/portal" data-scroll="services">新媒体运营</a><a href="#/portal" data-scroll="services">增长陪跑</a></div>
-        <div class="ptl-footer-col"><b>平台</b><a href="#/portal" data-scroll="console">平台后台</a><a href="#/portal" data-scroll="flow">履约流程</a><a href="#/portal" data-scroll="pricing">产品与价格</a><a href="javascript:void(0)" data-action="portal-login" data-role="platform">员工登录</a></div>
+        <div class="ptl-footer-col"><b>产品</b><a href="#/portal" data-scroll="tiers">客户分层</a><a href="#/portal" data-scroll="space">空间经营</a><a href="#/portal" data-scroll="counselor">咨询师增收</a><a href="#/portal" data-scroll="services">服务订单</a><a href="#/portal" data-scroll="flow">下单核销</a></div>
+        <div class="ptl-footer-col"><b>服务市场</b><a href="#/portal" data-scroll="services">品牌策划</a><a href="#/portal" data-scroll="services">小红书 / 视频号</a><a href="#/portal" data-scroll="services">引流工具</a><a href="#/portal" data-scroll="services">服务订单</a></div>
+        <div class="ptl-footer-col"><b>平台</b><a href="#/portal" data-scroll="flow">下单核销</a><a href="#/portal" data-scroll="voice">口碑社区</a><a href="#/portal" data-scroll="pricing">产品价格</a><a href="javascript:void(0)" data-action="portal-login" data-role="platform">平台后台</a></div>
         <div class="ptl-footer-col"><b>关于</b><a href="javascript:void(0)" data-action="toast" data-msg="关于青禾云（演示）">关于我们</a><a href="javascript:void(0)" data-action="toast" data-msg="合作与生态（演示）">合作与生态</a><a href="javascript:void(0)" data-action="toast" data-msg="联系客户成功（演示）">联系我们</a><a href="javascript:void(0)" data-action="toast" data-msg="隐私与合规（演示）">隐私与合规</a></div>
       </div>
       <div class="ptl-wrap ptl-footer-bottom">
