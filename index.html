@@ -3797,6 +3797,40 @@ body.portal-mode{
   .ptl-ps-metrics span{font-size:6.5px}
 }
 
+/* ---- 精神心理专科运营增值服务 ---- */
+.ptl-specialty{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:26px;align-items:center;margin-top:22px;padding:26px 27px 22px;border-radius:20px;color:#F4F0E0;background:radial-gradient(620px 340px at 92% 0%,rgba(140,198,63,.20),rgba(140,198,63,0) 64%),linear-gradient(155deg,#042F19 0%,#064E27 48%,#0B7A3A 100%);box-shadow:0 22px 48px rgba(8,90,44,.18);position:relative;overflow:hidden}
+.ptl-specialty::after{content:"";position:absolute;right:-60px;bottom:-100px;width:240px;height:240px;border-radius:50%;border:1px solid rgba(240,245,228,.10);pointer-events:none}
+.ptl-specialty-copy{position:relative;z-index:1}
+.ptl-specialty-copy h3{font-family:var(--font-serif);font-size:24px;line-height:1.5;font-weight:500;color:#F7F3E5;margin-top:8px}
+.ptl-specialty-copy p{font-size:10.8px;line-height:1.8;color:rgba(240,245,228,.62);margin-top:9px;max-width:370px}
+.ptl-specialty-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.ptl-specialty-tags span{font-size:8px;color:rgba(236,244,222,.68);border:1px solid rgba(240,245,228,.16);border-radius:3px;padding:3px 6px;background:rgba(255,255,255,.045)}
+.ptl-specialty-list{display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+.ptl-specialty-item{display:grid;grid-template-columns:18px 29px minmax(0,1fr);gap:8px;align-items:flex-start;padding:10px 12px;background:rgba(255,255,255,.055);border:1px solid rgba(240,245,228,.12);border-radius:10px;backdrop-filter:blur(6px);transition:all .18s}
+.ptl-specialty-item:hover{background:rgba(255,255,255,.09);border-color:rgba(201,233,143,.24);transform:translateY(-1px)}
+.ptl-specialty-no{font-family:var(--font-mono);font-size:7.5px;color:rgba(240,245,228,.35);padding-top:3px}
+.ptl-specialty-ico{width:29px;height:29px;border-radius:7px;background:rgba(201,233,143,.12);border:1px solid rgba(201,233,143,.20);color:#C9E98F;display:grid;place-items:center;flex:none}
+.ptl-specialty-head{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.ptl-specialty-head b{font-size:10.8px;font-weight:600;color:#F3EFDF}
+.ptl-specialty-head span{font-size:8px;color:#C9E98F}
+.ptl-specialty-item p{font-size:9.3px;line-height:1.65;color:rgba(240,245,228,.52);margin-top:2px}
+.ptl-specialty-foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(240,245,228,.13);margin-top:2px;padding-top:13px;position:relative;z-index:1;font-size:8.8px;line-height:1.6;color:rgba(240,245,228,.5)}
+.ptl-specialty-foot b{color:#F3EFDF;font-weight:600}
+.ptl-specialty-path{display:flex;align-items:center;gap:5px;flex-wrap:wrap;font-size:7.8px;color:rgba(240,245,228,.52);white-space:nowrap}
+.ptl-specialty-path i{font-style:normal;color:rgba(240,245,228,.28)}
+.ptl-specialty-path strong{color:#C9E98F;font-weight:600}
+@media (max-width:1120px){
+  .ptl-specialty{grid-template-columns:1fr;gap:18px}
+  .ptl-specialty-copy p{max-width:none}
+  .ptl-specialty-foot{align-items:flex-start;flex-direction:column;gap:9px}
+}
+@media (max-width:760px){
+  .ptl-specialty{padding:20px 16px 17px}
+  .ptl-specialty-copy h3{font-size:21px}
+  .ptl-specialty-item{grid-template-columns:16px 27px minmax(0,1fr);padding:9px 10px}
+  .ptl-specialty-path{white-space:normal}
+}
+
 </style>
 </head>
 <body>
@@ -7035,6 +7069,7 @@ Object.assign(uiState, {
   boardGroupKw: '',
   boardGroupType: '',
   boardGroupStatus: '',
+  boardGroupRes: 'staff',
   recTab: 'indiv',
   recRoom: '',
   recVisit: '',
@@ -7104,7 +7139,7 @@ function renderBoardPage() {
   const counts = isGroup ? g : m;
   return `<div class="page page-enter">
     ${pageHead(isGroup ? '预约看板 · 团体' : '预约看板',
-      isGroup ? '按带团咨询师查看团体排期，支持报名类型、状态与关键词筛选。' : '咨询师与房间双资源视图，支持档案查询、资产抵扣、收银与家庭档案补全。',
+      isGroup ? '按人员或房间查看团体排期，支持报名类型、状态与关键词筛选。' : '人员与房间双资源视图，支持档案查询、资产抵扣、收银与家庭档案补全。',
       `<button class="btn btn-sm" data-action="toast" data-msg="已导出${isGroup ? '团体' : ''}预约表">${icon('download', 14)} 导出</button>
        ${isGroup ? `<button class="btn btn-primary btn-sm" data-action="ga-create">${icon('plus', 14)} 创建团体活动</button>` : `<button class="btn btn-primary btn-sm" data-action="ap-new">${icon('plus', 14)} 新建预约</button>`}`)}
     <div class="ap-biz-bar">
@@ -7130,6 +7165,10 @@ function renderBoardPage() {
             ${['', '报名中', '待开始', '进行中', '已结束', '已取消'].map(s => `<option value="${s}" ${uiState.boardGroupStatus === s ? 'selected' : ''}>${s || '全部状态'}</option>`).join('')}
           </select>
           <div class="spacer"></div>
+          <div class="segmented" id="apGroupResTabs">
+            <button class="${uiState.boardGroupRes === 'staff' ? 'active' : ''}" data-action="ap-group-res" data-res="staff">人员</button>
+            <button class="${uiState.boardGroupRes === 'room' ? 'active' : ''}" data-action="ap-group-res" data-res="room">房间</button>
+          </div>
           <span class="badge green">${g.total} 场</span>
         ` : `
           <div class="search-wrap">${icon('search',14)}<input class="input" id="apKw" placeholder="来访姓名 / 手机号" value="${escapeHtml(uiState.boardKw)}"></div>
@@ -7143,7 +7182,7 @@ function renderBoardPage() {
           </select>
           <div class="spacer"></div>
           <div class="segmented" id="apResTabs">
-            <button class="${uiState.boardRes === 'staff' ? 'active' : ''}" data-action="ap-res" data-res="staff">咨询师</button>
+            <button class="${uiState.boardRes === 'staff' ? 'active' : ''}" data-action="ap-res" data-res="staff">人员</button>
             <button class="${uiState.boardRes === 'room' ? 'active' : ''}" data-action="ap-res" data-res="room">房间</button>
           </div>
         `}
@@ -7183,7 +7222,7 @@ function apBoardMetaHTML() {
       <span class="m">进行中 <b>${g.doing}</b></span>
       <span class="m">报名中 / 待开始 <b>${g.open}</b></span>
       <span class="m">已结束 <b>${g.done}</b></span>
-      <span class="m" style="margin-left:auto">更新于 14:28</span>`;
+      <span class="m" style="margin-left:auto">${uiState.boardGroupRes === 'room' ? '房间视图' : '人员视图'} · 更新于 14:28</span>`;
   }
   const m = apBoardMeta();
   return `<span class="m"><i class="dot"></i> 当日共 <b>${m.total}</b> 个预约</span>
@@ -7269,15 +7308,17 @@ function apCardHTML(a, opts) {
   </div>`;
 }
 
-function apGroupCardHTML(g) {
+function apGroupCardHTML(g, opts) {
+  const o = opts || {};
   const top = (apMin(g.start) - AP_START) / 60 * AP_PX_H;
   const h = Math.max(44, (apMin(g.end) - apMin(g.start)) / 60 * AP_PX_H - 2);
   const cls = g.status === '已结束' ? 'done' : g.status === '已取消' ? 'cancel' : (g.status === '待开始' || g.status === '报名中') ? 'wait' : '';
-  return `<div class="ap-group-card ${cls}" style="top:${top}px;height:${h}px" data-action="ap-group-detail" data-id="${g.id}" title="${escapeHtml(g.name)} · ${escapeHtml(g.type)} · ${g.start}-${g.end}">
+  const laneStyle = o.lanes > 1 ? `;left:calc(${o.lane * (100 / o.lanes)}% + 5px);right:auto;width:calc(${100 / o.lanes}% - 9px);z-index:${3 + (o.lane || 0)}` : '';
+  return `<div class="ap-group-card ${cls}" style="top:${top}px;height:${h}px${laneStyle}" data-action="ap-group-detail" data-id="${g.id}" title="${escapeHtml(g.name)} · ${escapeHtml(g.type)} · ${g.start}-${g.end}">
     <span class="g-status">${escapeHtml(g.status)}</span>
     <div class="g-name">${escapeHtml(g.name)}</div>
     <div class="g-line">${escapeHtml(g.type)}${g.enterprise ? ' · ' + escapeHtml(g.enterprise) : ''}</div>
-    <div class="g-line">报名 ${g.enrolled}/${g.capacity} · ${escapeHtml(g.room)}</div>
+    <div class="g-line">报名 ${g.enrolled}/${g.capacity}${o.hideRoom ? '' : ' · ' + escapeHtml(g.room)}</div>
     <div class="g-line">${escapeHtml(g.leader)} 带团</div>
   </div>`;
 }
@@ -7343,6 +7384,40 @@ function renderRoomBoardCols(cols, date, nowTop) {
   cols.innerHTML = html;
 }
 
+function apGroupLanes(items) {
+  const result = {};
+  const sorted = items.slice().sort((a, b) => apMin(a.start) - apMin(b.start) || apMin(a.end) - apMin(b.end));
+  const visited = new Set();
+  sorted.forEach(seed => {
+    if (visited.has(seed.id)) return;
+    const comp = [];
+    const stack = [seed];
+    visited.add(seed.id);
+    while (stack.length) {
+      const cur = stack.pop();
+      comp.push(cur);
+      sorted.forEach(other => {
+        if (visited.has(other.id)) return;
+        if (apMin(cur.start) < apMin(other.end) && apMin(other.start) < apMin(cur.end)) {
+          visited.add(other.id);
+          stack.push(other);
+        }
+      });
+    }
+    const laneEnds = [];
+    comp.sort((a, b) => apMin(a.start) - apMin(b.start) || apMin(a.end) - apMin(b.end));
+    comp.forEach(c => {
+      let lane = laneEnds.findIndex(end => end <= apMin(c.start));
+      if (lane < 0) { lane = laneEnds.length; laneEnds.push(0); }
+      laneEnds[lane] = apMin(c.end);
+      result[c.id] = { lane, lanes: 0 };
+    });
+    const lanes = laneEnds.length;
+    comp.forEach(c => { result[c.id].lanes = lanes; });
+  });
+  return result;
+}
+
 function renderGroupBoardCols(cols, date, nowTop) {
   const kw = (uiState.boardGroupKw || '').trim().toLowerCase();
   const fType = uiState.boardGroupType || '';
@@ -7355,13 +7430,27 @@ function renderGroupBoardCols(cols, date, nowTop) {
     return true;
   });
   let html = '';
-  COUNSELORS.forEach(c => {
-    const items = list.filter(g => g.leader === c.name);
-    html += `<div class="day-col">
-      <div class="col-head">${avatar(c.name, { tone:c.tone, size:'sm' })}<div class="ch-main"><div class="ch-name">${c.name} <span class="ch-count">${items.length}</span></div><div class="ch-sub">${c.shift} · 带团咨询师</div></div></div>
-      <div class="col-body">${apSlotHTML(c.name, uiState.boardDate === APP.today ? [APP.now.h * 60 + APP.now.m, AP_END] : null)}${items.map(g => apGroupCardHTML(g)).join('')}${apNowLine(nowTop)}</div>
-    </div>`;
-  });
+  if (uiState.boardGroupRes === 'room') {
+    const names = activeRoomNames().slice();
+    list.forEach(g => { if (g.room && names.indexOf(g.room) < 0) names.push(g.room); });
+    names.forEach(name => {
+      const info = roomInfo(name);
+      const items = list.filter(g => g.room === name);
+      const lanes = apGroupLanes(items);
+      html += `<div class="day-col">
+        <div class="col-head"><span class="ch-room-ico">${icon('map-pin', 15)}</span><div class="ch-main"><div class="ch-name">${escapeHtml(name)} <span class="ch-count">${items.length}</span></div><div class="ch-sub">${info ? info.use : '团体咨询室'}${info && info.status !== '启用' ? ' · 已停用' : ''} · 团体课程</div></div></div>
+        <div class="col-body">${apSlotHTML(name, uiState.boardDate === APP.today ? [APP.now.h * 60 + APP.now.m, AP_END] : null)}${items.map(g => { const l = lanes[g.id] || { lane:0, lanes:1 }; return apGroupCardHTML(g, { hideRoom:true, lane:l.lane, lanes:l.lanes }); }).join('')}${apNowLine(nowTop)}</div>
+      </div>`;
+    });
+  } else {
+    COUNSELORS.forEach(c => {
+      const items = list.filter(g => g.leader === c.name);
+      html += `<div class="day-col">
+        <div class="col-head">${avatar(c.name, { tone:c.tone, size:'sm' })}<div class="ch-main"><div class="ch-name">${c.name} <span class="ch-count">${items.length}</span></div><div class="ch-sub">${c.shift} · 带团咨询师</div></div></div>
+        <div class="col-body">${apSlotHTML(c.name, uiState.boardDate === APP.today ? [APP.now.h * 60 + APP.now.m, AP_END] : null)}${items.map(g => apGroupCardHTML(g)).join('')}${apNowLine(nowTop)}</div>
+      </div>`;
+    });
+  }
   cols.innerHTML = html;
 }
 
@@ -8007,6 +8096,7 @@ document.addEventListener('click', function (e) {
     case 'ap-next': uiState.boardDate = shiftDate(uiState.boardDate, 1); go('admin/board'); break;
     case 'ap-today': uiState.boardDate = APP.today; go('admin/board'); break;
     case 'ap-res': uiState.boardRes = el.dataset.res; go('admin/board'); break;
+    case 'ap-group-res': uiState.boardGroupRes = el.dataset.res; go('admin/board'); break;
     case 'ap-new': openApptEditor(); break;
     case 'ap-slot':
       if (el.classList.contains('disabled')) return;
@@ -13753,6 +13843,44 @@ function renderPortal() {
             </article>
           </div>
           <div class="ptl-value-note ptl-reveal">${icon('info', 13)} 与青禾云合作，不是增加一个供应商，而是把软件、运营与品牌交给同一个平台。</div>
+          <div class="ptl-specialty ptl-reveal">
+            <div class="ptl-specialty-copy">
+              <div class="ptl-eyebrow on-dark">SPECIALTY GROWTH · 精神心理专科运营增值服务</div>
+              <h3>把客流做进来，<br>把单客价值做上去。</h3>
+              <p>围绕客流与产品两大增收核心，平台从新媒体引流、AI 搜索曝光到专科产品增值，陪精神心理专科诊所把营收做上去。</p>
+              <div class="ptl-specialty-tags"><span>精神心理专科诊所</span><span>心理门店</span><span>连锁机构</span></div>
+            </div>
+            <div class="ptl-specialty-list">
+              <div class="ptl-specialty-item">
+                <span class="ptl-specialty-no">01</span>
+                <span class="ptl-specialty-ico">${icon('message', 15)}</span>
+                <div>
+                  <div class="ptl-specialty-head"><b>新媒体矩阵引流</b><span>让患者主动找上门</span></div>
+                  <p>从 0 到 1 搭建抖音、视频号、小红书宣传方案：账号定位、内容生产、运营投放一体化，提升诊所曝光，缓解客流不稳定与获客成本高。</p>
+                </div>
+              </div>
+              <div class="ptl-specialty-item">
+                <span class="ptl-specialty-no">02</span>
+                <span class="ptl-specialty-ico">${icon('search', 15)}</span>
+                <div>
+                  <div class="ptl-specialty-head"><b>AI 搜索平台曝光</b><span>抢占精准决策入口</span></div>
+                  <p>在豆包、元宝、千问等 AI 搜索与问答平台布局内容，让患者在“问 AI 找诊所”时优先看到您的机构，截获高意向、高转化的精准流量。</p>
+                </div>
+              </div>
+              <div class="ptl-specialty-item">
+                <span class="ptl-specialty-no">03</span>
+                <span class="ptl-specialty-ico">${icon('sparkles', 15)}</span>
+                <div>
+                  <div class="ptl-specialty-head"><b>专科产品矩阵</b><span>提升单客产值</span></div>
+                  <p>基于多年精神心理产品经验，筛选并引入真正能带来复购与增值的专科服务，把一次性诊疗转化为持续复购与增值。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ptl-specialty-foot">
+              <span><b>增收路径清晰，利润增长看得见。</b>运营、内容、投放、产品由平台协助落地操盘，全链路设计营收增长；诊所只需专注诊疗专业本身。</span>
+              <div class="ptl-specialty-path"><span>新媒体引流</span><i>→</i><span>AI 搜索曝光</span><i>→</i><span>专科产品增值</span><i>→</i><strong>营收增长</strong></div>
+            </div>
+          </div>
         </div>
       </section>
 
